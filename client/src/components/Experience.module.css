@@ -1,0 +1,46 @@
+.section {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .item {
+    margin-bottom: 1rem;
+  }
+  
+  .company {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
+  .role {
+    color: var(--text-secondary);
+  }
+  
+  .period {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .description {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+  }
+  
+  @media (max-width: 640px) {
+    .section {
+      padding: 1rem;
+    }
+  
+    .title {
+      font-size: 1.25rem;
+    }
+  }

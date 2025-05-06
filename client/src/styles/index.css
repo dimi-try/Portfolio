@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f9fafb;
+  --card-background: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --background: #1f2937;
+  --card-background: #374151;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --accent: #60a5fa;
+  --accent-hover: #3b82f6;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+button {
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Для PDF: убираем неподдерживаемые стили */
+@media print {
+  body {
+    background: none;
+  }
+  .no-print {
+    display: none;
+  }
+}

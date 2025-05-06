@@ -1,0 +1,67 @@
+{
+    "header": {
+      "title": "My Resume",
+      "languageSelector": "Select Language"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "items": [
+        "Won first place in a programming competition in 2023.",
+        "Implemented a project management system, boosting efficiency by 30%.",
+        "Certified React and Node.js specialist."
+      ]
+    },
+    "experience": {
+      "title": "Experience",
+      "items": [
+        {
+          "company": "Tech Corp",
+          "role": "Frontend Developer",
+          "period": "2022 - Present",
+          "description": "Developed responsive web applications using React."
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "projects": [
+        {
+          "title": "E-Commerce Platform",
+          "description": "A full-stack online store with payment integration.",
+          "details": "Built with React, Node.js, and Stripe. Features user authentication, product filtering, and a responsive design.",
+          "technologies": "React, Node.js, Stripe",
+          "link": "https://github.com"
+        },
+        {
+          "title": "Task Manager",
+          "description": "A productivity app for managing tasks and teams.",
+          "details": "Developed using Next.js and MongoDB. Includes real-time updates and team collaboration features.",
+          "technologies": "Next.js, MongoDB, WebSocket",
+          "link": "https://github.com"
+        },
+        {
+          "title": "Portfolio Website",
+          "description": "A personal resume website with multi-language support.",
+          "details": "Created with React, Tailwind CSS, and Node.js. Supports PDF generation and email functionality.",
+          "technologies": "React, Tailwind CSS, Node.js",
+          "link": "https://github.com"
+        }
+      ],
+      "viewDetails": "View Details",
+      "close": "Close"
+    },
+    "contact": {
+      "title": "Contact",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message."
+    },
+    "downloadPDF": "Download PDF"
+  }
