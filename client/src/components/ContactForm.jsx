@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { sendEmail } from '../utils/api';
+import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
   const { t } = useTranslation();
@@ -28,50 +29,47 @@ const ContactForm = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 bg-white shadow-md rounded-lg mb-6"
+      className={styles.section}
       id="contact-section"
     >
-      <h2 className="text-2xl font-bold mb-4">{t('contact.title')}</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block mb-1">{t('contact.name')}</label>
+      <h2 className={styles.title}>{t('contact.title')}</h2>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.field}>
+          <label className={styles.label}>{t('contact.name')}</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-2 border rounded"
+            className={styles.input}
             required
           />
         </div>
-        <div>
-          <label className="block mb-1">{t('contact.email')}</label>
+        <div className={styles.field}>
+          <label className={styles.label}>{t('contact.email')}</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-2 border rounded"
+            className={styles.input}
             required
           />
         </div>
-        <div>
-          <label className="block mb-1">{t('contact.message')}</label>
+        <div className={styles.field}>
+          <label className={styles.label}>{t('contact.message')}</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
-            className="w-full p-2 border rounded"
+            className={styles.textarea}
             required
           />
         </div>
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
+        <button type="submit" className={styles.submit}>
           {t('contact.submit')}
         </button>
-        {status && <p className="mt-2">{status}</p>}
+        {status && <p className={styles.status}>{status}</p>}
       </form>
     </motion.section>
   );

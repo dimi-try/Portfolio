@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { generatePDF } from '../utils/pdfGenerator';
+import styles from './PdfDownloadButton.module.css';
 
 const PdfDownloadButton = () => {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ const PdfDownloadButton = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={generatePDF}
-      className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+      className={styles.button}
     >
       {t('downloadPDF')}
     </motion.button>

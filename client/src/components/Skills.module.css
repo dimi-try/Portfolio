@@ -1,0 +1,37 @@
+.section {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .skill {
+    background: var(--accent);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 640px) {
+    .section {
+      padding: 1rem;
+    }
+  
+    .title {
+      font-size: 1.25rem;
+    }
+  }

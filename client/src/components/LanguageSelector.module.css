@@ -1,0 +1,29 @@
+.container {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
+  .select {
+    color: var(--text-primary);
+  }
+  
+  :global(.react-select__control) {
+    background: var(--card-background);
+    border-color: var(--text-secondary);
+    box-shadow: var(--shadow);
+  }
+  
+  :global(.react-select__control--is-focused) {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+  
+  :global(.react-select__menu) {
+    background: var(--card-background);
+    color: var(--text-primary);
+  }
+  
+  :global(.react-select__option--is-focused) {
+    background: var(--accent);
+    color: #ffffff;
+  }

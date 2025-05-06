@@ -5,18 +5,19 @@ import Skills from '../components/Skills';
 import Portfolio from '../components/Portfolio';
 import ContactForm from '../components/ContactForm';
 import PdfDownloadButton from '../components/PdfDownloadButton';
+import styles from './Home.module.css';
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <div className={styles.container}>
       <Header />
-      <main className="max-w-4xl mx-auto p-6" id="resume-content">
+      <main className={styles.main} id="resume-content">
         <Highlights />
         <Experience />
         <Skills />
         <Portfolio />
         <ContactForm />
-        <div className="text-center mt-6">
+        <div className={styles.buttonContainer}>
           <PdfDownloadButton />
         </div>
       </main>

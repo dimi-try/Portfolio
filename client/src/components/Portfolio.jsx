@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import PortfolioModal from './PortfolioModal';
+import styles from './Portfolio.module.css';
 
 const Portfolio = () => {
   const { t } = useTranslation();
@@ -14,17 +15,15 @@ const Portfolio = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 bg-white shadow-md rounded-lg mb-6"
+      className={styles.section}
       id="portfolio-section"
     >
-      <h2 className="text-2xl font-bold mb-6 text-center">
-        {t('portfolio.title')}
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <h2 className={styles.title}>{t('portfolio.title')}</h2>
+      <div className={styles.grid}>
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-gray-100 rounded-lg overflow-hidden shadow-lg cursor-pointer"
+            className={styles.card}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             onClick={() => setSelectedProject(project)}
@@ -35,18 +34,13 @@ const Portfolio = () => {
               transition={{ duration: 0.5 }}
               src={`/project${index + 1}.jpg`}
               alt={project.title}
-              className="w-full h-48 object-cover"
+              className={styles.image}
             />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold">{project.title}</h3>
-              <p className="text-gray-600 mt-2">{project.description}</p>
-              <p className="text-sm text-gray-500 mt-2">
-                {project.technologies}
-              </p>
-              <button
-                className="mt-4 text-blue-600 hover:underline"
-                onClick={() => setSelectedProject(project)}
-              >
+            <div className={styles.content}>
+              <h3 className={styles.projectTitle}>{project.title}</h3>
+              <p className={styles.description}>{project.description}</p>
+              <p className={styles.technologies}>{project.technologies}</p>
+              <button className={styles.button}>
                 {t('portfolio.viewDetails')}
               </button>
             </div>

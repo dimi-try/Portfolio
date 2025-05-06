@@ -1,0 +1,33 @@
+.section {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .list {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  
+  .item {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+  }
+  
+  @media (max-width: 640px) {
+    .section {
+      padding: 1rem;
+    }
+  
+    .title {
+      font-size: 1.25rem;
+    }
+  }

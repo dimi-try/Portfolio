@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import styles from './Skills.module.css';
 
 const Skills = () => {
   const { t } = useTranslation();
@@ -9,16 +10,13 @@ const Skills = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 bg-white shadow-md rounded-lg mb-6"
+      className={styles.section}
       id="skills-section"
     >
-      <h2 className="text-2xl font-bold mb-4">{t('skills.title')}</h2>
-      <div className="flex flex-wrap gap-2">
+      <h2 className={styles.title}>{t('skills.title')}</h2>
+      <div className={styles.skills}>
         {t('skills.items', { returnObjects: true }).map((skill, index) => (
-          <span
-            key={index}
-            className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
-          >
+          <span key={index} className={styles.skill}>
             {skill}
           </span>
         ))}
