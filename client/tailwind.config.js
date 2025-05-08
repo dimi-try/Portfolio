@@ -8,24 +8,24 @@ export default {
       },
       colors: {
         primary: {
-          light: '#3b82f6', // Blue-500
-          dark: '#60a5fa', // Blue-400
+          light: '#3b82f6',
+          dark: '#60a5fa',
         },
         background: {
-          light: '#f9fafb', // Gray-50
-          dark: '#1f2937', // Gray-800
+          light: '#f9fafb',
+          dark: '#1f2937',
         },
         card: {
           light: '#ffffff',
-          dark: '#374151', // Gray-700
+          dark: '#374151',
         },
         text: {
-          light: '#111827', // Gray-900
-          dark: '#e5e7eb', // Gray-200
+          light: '#111827',
+          dark: '#e5e7eb',
         },
       },
     },
   },
   plugins: [],
-  darkMode: 'class', // Включаем поддержку тем
+  darkMode: 'class',
 };
