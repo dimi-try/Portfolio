@@ -1,0 +1,62 @@
+{
+  "languageName": "Русский",
+  "header": {
+    "title": "Мое резюме",
+    "languageSelector": "Выберите язык"
+  },
+  "highlights": {
+    "title": "Достижения",
+    "items": [
+      "Занял первое место на соревновании по программированию в 2023 году.",
+      "Внедрил систему управления проектами, повысив эффективность на 30%.",
+      "Сертифицированный специалист по React и Node.js."
+    ]
+  },
+  "experience": {
+    "title": "Опыт работы",
+    "items": [
+      {
+        "company": "Тех Корп",
+        "role": "Фронтенд-разработчик",
+        "period": "2022 - настоящее время",
+        "description": "Разрабатывал адаптивные веб-приложения с использованием React."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Навыки",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  },
+  "portfolio": {
+    "title": "Портфолио",
+    "projects": [
+      {
+        "title": "Платформа электронной коммерции",
+        "description": "Полнофункциональный интернет-магазин с интеграцией платежей.",
+        "details": "Создан с использованием React, Node.js и Stripe. Включает аутентификацию пользователей, фильтрацию продуктов и адаптивный дизайн.",
+        "technologies": "React, Node.js, Stripe",
+        "link": "https://github.com/yourusername/ecommerce"
+      },
+      {
+        "title": "Менеджер задач",
+        "description": "Приложение для управления задачами и командами.",
+        "details": "Разработано с использованием Next.js и MongoDB. Поддерживает обновления в реальном времени и функции совместной работы.",
+        "technologies": "Next.js, MongoDB, WebSocket",
+        "link": "https://github.com/yourusername/taskmanager"
+      },
+      {
+        "title": "Сайт-портфолио",
+        "description": "Личный сайт-резюме с поддержкой нескольких языков.",
+        "details": "Создан с использованием React, Tailwind CSS и Node.js. Поддерживает генерацию PDF и отправку email.",
+        "technologies": "React, Tailwind CSS, Node.js",
+        "link": "https://github.com/yourusername/portfolio"
+      }
+    ],
+    "viewDetails": "Посмотреть детали",
+    "close": "Закрыть"
+  },
+  "social": {
+    "title": "Связаться со мной"
+  },
+  "downloadPDF": "Скачать PDF"
+}

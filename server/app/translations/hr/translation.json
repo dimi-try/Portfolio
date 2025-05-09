@@ -1,0 +1,62 @@
+{
+  "languageName": "Hrvatski",
+  "header": {
+    "title": "Moj životopis",
+    "languageSelector": "Odaberite jezik"
+  },
+  "highlights": {
+    "title": "Postignuća",
+    "items": [
+      "Osvojio prvo mjesto na programerskom natjecanju 2023. godine.",
+      "Implementirao sustav za upravljanje projektima, povećavši učinkovitost za 30%.",
+      "Certificirani stručnjak za React i Node.js."
+    ]
+  },
+  "experience": {
+    "title": "Iskustvo",
+    "items": [
+      {
+        "company": "Tech Corp",
+        "role": "Frontend programer",
+        "period": "2022 - danas",
+        "description": "Razvijao responzivne web aplikacije koristeći React."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Vještine",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  },
+  "portfolio": {
+    "title": "Portfelj",
+    "projects": [
+      {
+        "title": "Platforma za e-trgovinu",
+        "description": "Potpuno funkcionalna internetska trgovina s integracijom plaćanja.",
+        "details": "Izrađena s Reactom, Node.js i Stripe. Uključuje autentifikaciju korisnika, filtriranje proizvoda i responzivan dizajn.",
+        "technologies": "React, Node.js, Stripe",
+        "link": "https://github.com/yourusername/ecommerce"
+      },
+      {
+        "title": "Upravitelj zadataka",
+        "description": "Aplikacija za produktivnost za upravljanje zadacima i timovima.",
+        "details": "Razvijena pomoću Next.js i MongoDB. Uključuje ažuriranja u stvarnom vremenu i funkcije za timsku suradnju.",
+        "technologies": "Next.js, MongoDB, WebSocket",
+        "link": "https://github.com/yourusername/taskmanager"
+      },
+      {
+        "title": "Web stranica portfelja",
+        "description": "Osobna web stranica sa životopisom i podrškom za više jezika.",
+        "details": "Izrađena s Reactom, Tailwind CSS i Node.js. Podržava generiranje PDF-a i funkcionalnost e-pošte.",
+        "technologies": "React, Tailwind CSS, Node.js",
+        "link": "https://github.com/yourusername/portfolio"
+      }
+    ],
+    "viewDetails": "Pogledaj detalje",
+    "close": "Zatvori"
+  },
+  "social": {
+    "title": "Povežite se sa mnom"
+  },
+  "downloadPDF": "Preuzmi PDF"
+}

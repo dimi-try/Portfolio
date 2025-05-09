@@ -1,9 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import json
 from pathlib import Path
 from fastapi.responses import JSONResponse
 import logging
+import os
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO)
@@ -22,6 +23,23 @@ app.add_middleware(
 
 # Путь к переводам
 TRANSLATIONS_DIR = Path(__file__).parent / "translations"
+
+@app.get("/api/translations/languages")
+async def get_available_languages():
+    try:
+        languages = []
+        for folder_name in os.listdir(TRANSLATIONS_DIR):
+            folder_path = f"{TRANSLATIONS_DIR}/{folder_name}"
+            file_path = f"{folder_path}/translation.json"
+            if os.path.isdir(folder_path) and os.path.exists(file_path):
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    language_name = data.get("languageName", folder_name)
+                    languages.append({"code": folder_name, "name": language_name})
+        print(f"Доступные языки: {languages}") 
+        return languages
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error reading languages: {str(e)}")
 
 @app.get("/api/translations/{lang}")
 async def get_translations(lang: str):

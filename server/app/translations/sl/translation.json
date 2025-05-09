@@ -1,0 +1,62 @@
+{
+  "languageName": "Slovenščina",
+  "header": {
+    "title": "Moj življenjepis",
+    "languageSelector": "Izberite jezik"
+  },
+  "highlights": {
+    "title": "Dosežki",
+    "items": [
+      "Leta 2023 zmagal na prvem mestu na programerskem tekmovanju.",
+      "Vzpostavil sistem za upravljanje projektov, ki je povečal učinkovitost za 30%.",
+      "Certificiran specialist za React in Node.js."
+    ]
+  },
+  "experience": {
+    "title": "Izkušnje",
+    "items": [
+      {
+        "company": "Tech Corp",
+        "role": "Razvijalec spletnih vmesnikov",
+        "period": "2022 - danes",
+        "description": "Razvijal odzivne spletne aplikacije z uporabo Reacta."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Veščine",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  },
+  "portfolio": {
+    "title": "Portfelj",
+    "projects": [
+      {
+        "title": "Platforma za e-trgovino",
+        "description": "Celovita spletna trgovina z integracijo plačil.",
+        "details": "Zgrajen z Reactom, Node.js in Stripe. Vključuje avtentikacijo uporabnikov, filtriranje izdelkov in odziven dizajn.",
+        "technologies": "React, Node.js, Stripe",
+        "link": "https://github.com/yourusername/ecommerce"
+      },
+      {
+        "title": "Upravitelj nalog",
+        "description": "Aplikacija za produktivnost za upravljanje nalog in ekip.",
+        "details": "Razvit z Next.js in MongoDB. Vključuje posodobitve v realnem času in funkcije za sodelovanje ekipe.",
+        "technologies": "Next.js, MongoDB, WebSocket",
+        "link": "https://github.com/yourusername/taskmanager"
+      },
+      {
+        "title": "Osebna spletna stran portfelja",
+        "description": "Osebna spletna stran z življenjepisom in podporo za več jezikov.",
+        "details": "Ustvarjen z Reactom, Tailwind CSS in Node.js. Podpira generiranje PDF in funkcionalnost e-pošte.",
+        "technologies": "React, Tailwind CSS, Node.js",
+        "link": "https://github.com/yourusername/portfolio"
+      }
+    ],
+    "viewDetails": "Ogled podrobnosti",
+    "close": "Zapri"
+  },
+  "social": {
+    "title": "Povežite se z mano"
+  },
+  "downloadPDF": "Prenesi PDF"
+}

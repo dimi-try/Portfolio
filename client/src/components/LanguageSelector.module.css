@@ -1,42 +1,29 @@
 .container {
-  max-width: 200px;
+  width: 200px;
   margin: 0 auto;
 }
 
 .select {
-  color: #000000; /* Черный текст всегда */
+  font-size: 16px;
 }
 
-:global(.react-select__control) {
-  background: #ffffff; /* Светлый фон */
-  border-color: var(--text-secondary);
-  box-shadow: var(--shadow);
-  color: #000000; /* Черный текст */
+/* Дополнительные стили для react-select */
+.react-select__control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
 }
 
-:global(.react-select__control--is-focused) {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+.react-select__menu {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-:global(.react-select__menu) {
-  background: #ffffff; /* Светлый фон для выпадающего меню */
-  color: #000000; /* Черный текст */
+.react-select__option {
+  color: black !important; /* Черный текст для опций */
 }
 
-:global(.react-select__option) {
-  color: #000000; /* Черный текст для опций */
-}
-
-:global(.react-select__option--is-focused) {
-  background: var(--accent);
-  color: #ffffff; /* Белый текст при фокусе */
-}
-
-:global(.react-select__single-value) {
-  color: #000000; /* Черный текст для выбранного значения */
-}
-
-:global(.react-select__placeholder) {
-  color: #000000; /* Черный текст для плейсхолдера */
+.react-select__single-value {
+  color: black !important; /* Черный текст для выбранного значения */
 }

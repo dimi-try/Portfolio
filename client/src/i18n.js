@@ -3,7 +3,22 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import axios from 'axios';
 
-const supportedLngs = ['en', 'sr', 'ru', 'sl', 'hr', 'cnr']; // Поддерживаемые языки
+let supportedLngs = []; // Заполняем динамически
+
+// Грузим список доступных языков
+const loadSupportedLanguages = async () => {
+  console.log('Пытаемся загрузить список доступных языков...');
+  try {
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/translations/languages`);
+    supportedLngs = response.data.map(lang => lang.code);
+    console.log('Доступные языки:', supportedLngs);
+    return supportedLngs;
+  } catch (error) {
+    console.error('Ошибка загрузки списка языков:', error);
+    supportedLngs = ['en']; // Fallback на английский
+    return supportedLngs;
+  }
+};
 
 // Грузим переводы с бэкенда
 const loadTranslations = async (lng) => {
@@ -25,6 +40,9 @@ const loadTranslations = async (lng) => {
 // Инициализация i18next
 const initI18n = async () => {
   console.log('Запускаем инициализацию i18next...');
+  // Сначала грузим список языков
+  await loadSupportedLanguages();
+
   await i18n
     .use(LanguageDetector)
     .use(initReactI18next)
@@ -105,5 +123,8 @@ export const changeLanguage = async (lng) => {
     console.log('Переключились на английский как fallback');
   }
 };
+
+// Экспортируем supportedLngs для использования в других компонентах
+export { supportedLngs, loadSupportedLanguages };
 
 export default i18n;
