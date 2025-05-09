@@ -2,7 +2,7 @@
 FROM node:22.14.0-alpine AS build
 
 # Задаем рабочую директорию в контейнере
-WORKDIR /src
+WORKDIR /app
 
 # Копируем package.json и package-lock.json в контейнер
 COPY package*.json ./
@@ -18,7 +18,7 @@ RUN npm run build
 
 # Используем Nginx для запуска нашего приложения
 FROM nginx:1.23-alpine
-COPY --from=builder /src/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Копируем пользовательскую конфигурацию Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
