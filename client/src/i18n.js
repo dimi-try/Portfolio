@@ -5,61 +5,105 @@ import axios from 'axios';
 
 const supportedLngs = ['en', 'sr', 'ru', 'sl', 'hr', 'cnr']; // Поддерживаемые языки
 
+// Грузим переводы с бэкенда
 const loadTranslations = async (lng) => {
+  console.log(`Пытаемся загрузить перевод для языка: ${lng}`);
   try {
-    // Проверяем, поддерживается ли язык
     if (!supportedLngs.includes(lng)) {
-      return null; // Возвращаем null, чтобы переключиться на fallbackLng
+      console.log(`Язык ${lng} не поддерживается, возвращаем null`);
+      return null;
     }
     const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/translations/${lng}`);
+    console.log(`Перевод для ${lng} успешно загружен:`, response.data);
     return response.data;
   } catch (error) {
-    console.error(`Failed to load translations for ${lng}`, error);
+    console.error(`Ошибка загрузки перевода для ${lng}:`, error);
     return null;
   }
 };
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    supportedLngs,
-    fallbackLng: 'en', // Английский по умолчанию
-    interpolation: { escapeValue: false },
-    resources: {},
-    load: 'languageOnly',
-    detection: {
-      order: ['localStorage', 'navigator'], // Сначала проверяем localStorage
-      caches: ['localStorage'], // Сохраняем язык в localStorage
-    },
-  });
+// Инициализация i18next
+const initI18n = async () => {
+  console.log('Запускаем инициализацию i18next...');
+  await i18n
+    .use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+      supportedLngs,
+      fallbackLng: 'en', // Английский, если всё наебнулось
+      interpolation: { escapeValue: false },
+      resources: {}, // Пусто, заполняем потом
+      load: 'languageOnly',
+      detection: {
+        order: ['localStorage', 'navigator'], // Сначала localStorage
+        caches: ['localStorage'], // Сохраняем язык в localStorage
+      },
+    });
 
-// Загружаем переводы при инициализации
-const initializeTranslations = async () => {
-  const lng = i18n.language || 'en'; // Берем язык из детектора или английский
-  const translations = await loadTranslations(lng);
-  if (translations) {
-    i18n.addResourceBundle(lng, 'translation', translations, true, true);
-  } else {
-    i18n.changeLanguage('en'); // Переключаем на английский, если язык не поддерживается
-    const enTranslations = await loadTranslations('en');
-    i18n.addResourceBundle('en', 'translation', enTranslations, true, true);
+  // Берем начальный язык из localStorage или английский
+  let initialLng = i18n.language || 'en';
+  console.log(`Начальный язык: ${initialLng}`);
+  if (!supportedLngs.includes(initialLng)) {
+    console.log(`Язык ${initialLng} не поддерживается, берём английский`);
+    initialLng = 'en';
   }
+
+  // Грузим переводы
+  let translations = await loadTranslations(initialLng);
+  if (!translations) {
+    console.log(`Не удалось загрузить перевод для ${initialLng}, берём английский`);
+    translations = await loadTranslations('en');
+    initialLng = 'en';
+  }
+
+  // Добавляем переводы в i18next
+  console.log(`Добавляем перевод для ${initialLng} в i18next`);
+  i18n.addResourceBundle(initialLng, 'translation', translations, true, true);
+  console.log(`Переводы для ${initialLng} добавлены, переключаем язык`);
+  await i18n.changeLanguage(initialLng);
 };
 
-// Загружаем переводы при смене языка
-i18n.on('languageChanged', async (lng) => {
-  if (!supportedLngs.includes(lng)) {
-    i18n.changeLanguage('en'); // Переключаем на английский, если язык не поддерживается
-    return;
-  }
-  const translations = await loadTranslations(lng);
-  if (translations) {
-    i18n.addResourceBundle(lng, 'translation', translations, true, true);
-  }
+// Экспортируем Promise для инициализации
+export const initPromise = initI18n().catch(async (error) => {
+  console.error('Бля, инициализация i18next наебнулась:', error);
+  // Fallback: грузим английский
+  const translations = await loadTranslations('en');
+  i18n.addResourceBundle('en', 'translation', translations, true, true);
+  await i18n.changeLanguage('en');
+  console.log('Переключились на английский как fallback');
 });
 
-// Инициализация
-initializeTranslations();
+// Функция для смены языка
+export const changeLanguage = async (lng) => {
+  console.log(`Пытаемся переключить язык на: ${lng}`);
+  if (!supportedLngs.includes(lng)) {
+    console.log(`Язык ${lng} не поддерживается, переключаем на английский`);
+    const translations = await loadTranslations('en');
+    i18n.addResourceBundle('en', 'translation', translations, true, true);
+    await i18n.changeLanguage('en');
+    console.log('Переключились на английский как fallback');
+    return;
+  }
+
+  if (i18n.hasResourceBundle(lng, 'translation')) {
+    console.log(`Перевод для ${lng} уже есть, просто переключаем`);
+    await i18n.changeLanguage(lng);
+    return;
+  }
+
+  const translations = await loadTranslations(lng);
+  if (translations) {
+    console.log(`Добавляем перевод для ${lng} в i18next`);
+    i18n.addResourceBundle(lng, 'translation', translations, true, true);
+    await i18n.changeLanguage(lng);
+    console.log(`Переводы для ${lng} загружены и применены`);
+  } else {
+    console.log(`Не удалось загрузить перевод для ${lng}, берём английский`);
+    const enTranslations = await loadTranslations('en');
+    i18n.addResourceBundle('en', 'translation', enTranslations, true, true);
+    await i18n.changeLanguage('en');
+    console.log('Переключились на английский как fallback');
+  }
+};
 
 export default i18n;
