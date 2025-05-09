@@ -1,20 +1,20 @@
 .container {
-    min-height: 100vh;
-  }
-  
+  min-height: 100vh;
+}
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 640px) {
   .main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1.5rem;
+    padding: 1rem;
   }
-  
-  .buttonContainer {
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-  
-  @media (max-width: 640px) {
-    .main {
-      padding: 1rem;
-    }
-  }
+}

@@ -3,7 +3,7 @@ import Highlights from '../components/Highlights';
 import Experience from '../components/Experience';
 import Skills from '../components/Skills';
 import Portfolio from '../components/Portfolio';
-import ContactForm from '../components/ContactForm';
+import SocialLinks from '../components/SocialLinks';
 import PdfDownloadButton from '../components/PdfDownloadButton';
 import styles from './Home.module.css';
 
@@ -16,7 +16,7 @@ const Home = () => {
         <Experience />
         <Skills />
         <Portfolio />
-        <ContactForm />
+        <SocialLinks />
         <div className={styles.buttonContainer}>
           <PdfDownloadButton />
         </div>

@@ -1,0 +1,62 @@
+{
+  "languageName": "Crnogorski",
+  "header": {
+    "title": "Moj životopis",
+    "languageSelector": "Izaberi jezik"
+  },
+  "highlights": {
+    "title": "Dostignuća",
+    "items": [
+      "Osvojio prvo mjesto na takmičenju u programiranju 2023. godine.",
+      "Implementirao sistem za upravljanje projektima, povećavši efikasnost za 30%.",
+      "Certifikovani stručnjak za React i Node.js."
+    ]
+  },
+  "experience": {
+    "title": "Iskustvo",
+    "items": [
+      {
+        "company": "Tech Corp",
+        "role": "Frontend programer",
+        "period": "2022 - sada",
+        "description": "Razvijao responzivne veb aplikacije koristeći React."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Vještine",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "projects": [
+      {
+        "title": "Platforma za elektronsku trgovinu",
+        "description": "Kompletna onlajn prodavnica sa integracijom plaćanja.",
+        "details": "Izgrađena sa Reactom, Node.js i Stripe. Uključuje autentifikaciju korisnika, filtriranje proizvoda i responzivan dizajn.",
+        "technologies": "React, Node.js, Stripe",
+        "link": "https://github.com/yourusername/ecommerce"
+      },
+      {
+        "title": "Menadžer zadataka",
+        "description": "Aplikacija za produktivnost za upravljanje zadacima i timovima.",
+        "details": "Razvijena koristeći Next.js i MongoDB. Podržava ažuriranja u realnom vremenu i funkcije za timsku saradnju.",
+        "technologies": "Next.js, MongoDB, WebSocket",
+        "link": "https://github.com/yourusername/taskmanager"
+      },
+      {
+        "title": "Veb sajt portfolija",
+        "description": "Lični veb sajt sa životopisom i podrškom za više jezika.",
+        "details": "Kreiran sa Reactom, Tailwind CSS i Node.js. Podržava generisanje PDF-a i funkcionalnost e-pošte.",
+        "technologies": "React, Tailwind CSS, Node.js",
+        "link": "https://github.com/yourusername/portfolio"
+      }
+    ],
+    "viewDetails": "Pogledaj detalje",
+    "close": "Zatvori"
+  },
+  "social": {
+    "title": "Poveži se sa mnom"
+  },
+  "downloadPDF": "Preuzmi PDF"
+}

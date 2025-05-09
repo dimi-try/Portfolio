@@ -1,0 +1,62 @@
+{
+  "languageName": "Українська",
+  "header": {
+    "title": "Моє резюме",
+    "languageSelector": "Оберіть мову"
+  },
+  "highlights": {
+    "title": "Досягнення",
+    "items": [
+      "Здобув перше місце на змаганні з програмування у 2023 році.",
+      "Впровадив систему управління проєктами, підвищивши ефективність на 30%.",
+      "Сертифікований спеціаліст з React та Node.js."
+    ]
+  },
+  "experience": {
+    "title": "Досвід роботи",
+    "items": [
+      {
+        "company": "Тех Корп",
+        "role": "Фронтенд-розробник",
+        "period": "2022 - дотепер",
+        "description": "Розробляв адаптивні веб-додатки з використанням React."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Навички",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  },
+  "portfolio": {
+    "title": "Портфоліо",
+    "projects": [
+      {
+        "title": "Платформа електронної комерції",
+        "description": "Повнофункціональний інтернет-магазин з інтеграцією платежів.",
+        "details": "Створений з використанням React, Node.js та Stripe. Включає автентифікацію користувачів, фільтрацію продуктів та адаптивний дизайн.",
+        "technologies": "React, Node.js, Stripe",
+        "link": "https://github.com/yourusername/ecommerce"
+      },
+      {
+        "title": "Менеджер завдань",
+        "description": "Додаток для продуктивності для управління завданнями та командами.",
+        "details": "Розроблений з використанням Next.js та MongoDB. Підтримує оновлення в реальному часі та функції для командної роботи.",
+        "technologies": "Next.js, MongoDB, WebSocket",
+        "link": "https://github.com/yourusername/taskmanager"
+      },
+      {
+        "title": "Сайт-портфоліо",
+        "description": "Особистий сайт-резюме з підтримкою кількох мов.",
+        "details": "Створений з використанням React, Tailwind CSS та Node.js. Підтримує генерацію PDF та функціонал електронної пошти.",
+        "technologies": "React, Tailwind CSS, Node.js",
+        "link": "https://github.com/yourusername/portfolio"
+      }
+    ],
+    "viewDetails": "Переглянути деталі",
+    "close": "Закрити"
+  },
+  "social": {
+    "title": "Зв’яжіться зі мною"
+  },
+  "downloadPDF": "Завантажити PDF"
+}
