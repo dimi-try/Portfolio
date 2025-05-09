@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy-frontend:
-      name: Push Docker image to Docker Hub
+      name: Push Frontend Docker image to Docker Hub
       runs-on: ubuntu-latest
       steps:
         - name: Check out the repo
@@ -30,7 +30,7 @@ jobs:
             context: ./client
             tags: ${{ secrets.DOCKER_USERNAME }}/portfolio-frontend:latest
   deploy-backend:
-      name: Push Docker image to Docker Hub
+      name: Push Backend Docker image to Docker Hub
       runs-on: ubuntu-latest
       steps:
         - name: Check out the repo

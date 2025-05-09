@@ -13,6 +13,9 @@ RUN npm install
 # Копируем весь проект в контейнер
 COPY . .
 
+# Собираем приложение для production, явно передавая переменную
+RUN npm run build
+
 # Используем Nginx для запуска нашего приложения
 FROM nginx:1.23-alpine
 COPY --from=build /src/build /usr/share/nginx/html
