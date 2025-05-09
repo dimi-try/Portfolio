@@ -34,6 +34,7 @@
 
 .link:hover {
   background: var(--accent-hover);
+  color: #ffffff;
 }
 
 .icon {
