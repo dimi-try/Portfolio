@@ -3,13 +3,19 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import axios from 'axios';
 
+const supportedLngs = ['en', 'sr', 'ru', 'sl', 'hr', 'cnr']; // Поддерживаемые языки
+
 const loadTranslations = async (lng) => {
   try {
+    // Проверяем, поддерживается ли язык
+    if (!supportedLngs.includes(lng)) {
+      return null; // Возвращаем null, чтобы переключиться на fallbackLng
+    }
     const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/translations/${lng}`);
     return response.data;
   } catch (error) {
     console.error(`Failed to load translations for ${lng}`, error);
-    return {}; // Возвращаем пустой объект в случае ошибки
+    return null;
   }
 };
 
@@ -17,34 +23,43 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
+    supportedLngs,
+    fallbackLng: 'en', // Английский по умолчанию
     interpolation: { escapeValue: false },
-    resources: {}, // Пустые ресурсы, загружаем динамически
+    resources: {},
     load: 'languageOnly',
     detection: {
-      order: ['querystring', 'cookie', 'localStorage', 'navigator'],
-      caches: ['localStorage', 'cookie'],
-    },
-    react: {
-      useSuspense: false, // Отключаем Suspense для асинхронной загрузки
+      order: ['localStorage', 'navigator'], // Сначала проверяем localStorage
+      caches: ['localStorage'], // Сохраняем язык в localStorage
     },
   });
 
-// Инициализация переводов
+// Загружаем переводы при инициализации
 const initializeTranslations = async () => {
-  const lng = i18n.language || 'en';
+  const lng = i18n.language || 'en'; // Берем язык из детектора или английский
   const translations = await loadTranslations(lng);
-  i18n.addResourceBundle(lng, 'translation', translations, true, true);
-  i18n.changeLanguage(lng);
+  if (translations) {
+    i18n.addResourceBundle(lng, 'translation', translations, true, true);
+  } else {
+    i18n.changeLanguage('en'); // Переключаем на английский, если язык не поддерживается
+    const enTranslations = await loadTranslations('en');
+    i18n.addResourceBundle('en', 'translation', enTranslations, true, true);
+  }
 };
 
-// Загрузка переводов при смене языка
+// Загружаем переводы при смене языка
 i18n.on('languageChanged', async (lng) => {
+  if (!supportedLngs.includes(lng)) {
+    i18n.changeLanguage('en'); // Переключаем на английский, если язык не поддерживается
+    return;
+  }
   const translations = await loadTranslations(lng);
-  i18n.addResourceBundle(lng, 'translation', translations, true, true);
+  if (translations) {
+    i18n.addResourceBundle(lng, 'translation', translations, true, true);
+  }
 });
 
-// Запускаем инициализацию
+// Инициализация
 initializeTranslations();
 
 export default i18n;

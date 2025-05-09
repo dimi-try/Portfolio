@@ -1,8 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import Select from 'react-select';
+import styles from './LanguageSelector.module.css';
+import { useEffect, useState } from 'react';
 
 const LanguageSelector = () => {
   const { i18n, t } = useTranslation();
+  const [selectedLang, setSelectedLang] = useState(i18n.language);
 
   const options = [
     { value: 'en', label: 'English' },
@@ -14,17 +17,25 @@ const LanguageSelector = () => {
   ];
 
   const handleChange = (selected) => {
-    i18n.changeLanguage(selected.value);
+    const newLang = selected.value;
+    setSelectedLang(newLang);
+    i18n.changeLanguage(newLang);
   };
 
+  // Синхронизация с i18n.language
+  useEffect(() => {
+    setSelectedLang(i18n.language);
+  }, [i18n.language]);
+
   return (
-    <div className="mt-4 max-w-xs mx-auto">
+    <div className={styles.container}>
       <Select
         options={options}
         onChange={handleChange}
-        value={options.find((opt) => opt.value === i18n.language)}
+        value={options.find((opt) => opt.value === selectedLang)}
         placeholder={t('header.languageSelector')}
-        className="text-black"
+        className={styles.select}
+        classNamePrefix="react-select"
       />
     </div>
   );
