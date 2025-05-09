@@ -21,7 +21,7 @@
   
   .themeToggle {
     background: #ffffff;
-    color: var(--text-primary);
+    color: var(--text-black);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     border: none;

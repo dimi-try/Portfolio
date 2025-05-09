@@ -10,6 +10,7 @@
   --accent: #3b82f6;
   --accent-hover: #2563eb;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --text-black: #000000;
 }
 
 [data-theme='dark'] {
@@ -20,6 +21,7 @@
   --accent: #60a5fa;
   --accent-hover: #3b82f6;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --text-black: #000000;
 }
 
 body {
