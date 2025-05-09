@@ -32,19 +32,6 @@ client/
 │   ├── pages/                     # Страницы приложения
 │   │   ├── Home.jsx               # Главная страница, собирает все компоненты
 │   │   └── Home.module.css        # Стили для главной страницы
-│   ├── locales/                   # Файлы переводов для мультиязычности
-│   │   ├── en/                    # Переводы на английский
-│   │   │   └── translation.json
-│   │   ├── ru/                    # Переводы на русский
-│   │   │   └── translation.json
-│   │   ├── sl/                    # Переводы на словенский
-│   │   │   └── translation.json
-│   │   ├── sr/                    # Переводы на сербский
-│   │   │   └── translation.json
-│   │   ├── hr/                    # Переводы на хорватский
-│   │   │   └── translation.json
-│   │   └── cnr/                   # Переводы на черногорский
-│   │       └── translation.json
 │   ├── styles/                    # Глобальные стили
 │   │   └── index.css              # Основные стили, темы, переменные
 │   ├── utils/                     # Утилиты и вспомогательные функции
@@ -53,6 +40,27 @@ client/
 │   ├── App.jsx                    # Главный компонент приложения
 │   ├── main.jsx                   # Точка входа для React
 │   └── i18n.js                    # Конфигурация i18next для мультиязычности
+├── server/                    
+│   ├── app/                   
+│   │   └── main.py            
+│   ├── translations/          
+│   │   ├── en/                # English 
+│   │   │   └── translation.json
+│   │   ├── sr/                # Serbian 
+│   │   │   └── translation.json
+│   │   ├── ru/                # Russian 
+│   │   │   └── translation.json
+│   │   ├── sl/                # Slovenian 
+│   │   │   └── translation.json
+│   │   ├── hr/                # Croatian 
+│   │   │   └── translation.json
+│   │   ├── cnr/               # Montenegrin 
+│   │   │   └── translation.json
+│   │   └── uk/                # Ukrainian 
+│   │       └── translation.json
+│   ├── requirements.txt       # Python зависимости
+│   └── Dockerfile             # Docker конфигурация
+├── docker-compose.yml         # Docker Compose конфигурация
 ├── .eslintrc.json                 # Настройки ESLint для линтинга кода
 ├── .prettierrc                    # Настройки Prettier для форматирования
 ├── package.json                   # Зависимости и скрипты проекта
