@@ -3,6 +3,8 @@ version: '3.8'
 services:
   backend:
     image: ${DOCKER_HUB_USER}/portfolio-backend:latest
+    environment:
+      FRONTEND_ALLOWED_ORIGINS: ${FRONTEND_ALLOWED_ORIGINS}
     ports:
       - "${BACKEND_HOST_PORT}:8000"
     networks:
