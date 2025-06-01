@@ -20,7 +20,7 @@ allowed_origins = [url.strip() for url in os.environ.get("FRONTEND_ALLOWED_ORIGI
 # Настройка CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[allowed_origins],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
