@@ -5,6 +5,7 @@ from pathlib import Path
 from fastapi.responses import JSONResponse
 import logging
 import os
+from dotenv import load_dotenv
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO)
@@ -12,10 +13,14 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
+load_dotenv()  # Загружает переменные из .env в os.environ
+# Записываем разрешенные url фронта для cors из env
+allowed_origins = [url.strip() for url in os.environ.get("FRONTEND_ALLOWED_ORIGINS", "").split(",") if url.strip()]
+
 # Настройка CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=[allowed_origins],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
