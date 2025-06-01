@@ -13,7 +13,25 @@ RUN npm install
 # Копируем весь проект в контейнер
 COPY . .
 
-# Собираем приложение для production, явно передавая переменную
+# Определяем аргумент для переменной окружения (значение придёт из CI/CD)
+ARG VITE_GITHUB_URL
+ARG VITE_EMAIL_ADDRESS
+ARG VITE_TELEGRAM_URL
+ARG VITE_API_URL
+
+# Устанавливаем переменные окружения из аргумента
+ENV VITE_GITHUB_URL=$VITE_GITHUB_URL
+ENV VITE_EMAIL_ADDRESS=$VITE_EMAIL_ADDRESS
+ENV VITE_TELEGRAM_URL=$VITE_TELEGRAM_URL
+ENV VITE_API_URL=$VITE_API_URL
+
+# Явно передаём переменные
+RUN VITE_GITHUB_URL=$VITE_GITHUB_URL
+RUN VITE_EMAIL_ADDRESS=$VITE_EMAIL_ADDRESS
+RUN VITE_TELEGRAM_URL=$VITE_TELEGRAM_URL
+RUN VITE_API_URL=$VITE_API_URL
+
+# Собираем приложение для production
 RUN npm run build
 
 # Используем Nginx для запуска нашего приложения
