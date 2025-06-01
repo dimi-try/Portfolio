@@ -29,6 +29,11 @@ jobs:
             push: true
             context: ./client
             tags: ${{ secrets.DOCKER_USERNAME }}/portfolio-frontend:latest
+            build-args: |
+              VITE_GITHUB_URL=${{ secrets.VITE_GITHUB_URL }}
+              VITE_EMAIL_ADDRESS=${{ secrets.VITE_EMAIL_ADDRESS }}
+              VITE_TELEGRAM_URL=${{ secrets.VITE_TELEGRAM_URL }}
+              VITE_API_URL=${{ secrets.VITE_API_URL }}
   deploy-backend:
       name: Push Backend Docker image to Docker Hub
       runs-on: ubuntu-latest
