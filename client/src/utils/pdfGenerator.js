@@ -8,16 +8,15 @@ export const generatePDF = async () => {
   const originalStyle = element.getAttribute("style") || "";
   const originalClass = element.getAttribute("class") || "";
 
-  // Временные стили для A4 (96dpi = 794x1123 px)
+  // A4 в пикселях при 96dpi ≈ 794 x 1123
   element.style.width = "794px";
   element.style.minHeight = "1123px";
   element.style.padding = "40px";
   element.style.boxSizing = "border-box";
   element.style.zoom = "1";
-  element.style.backgroundColor = "#fff"; // важно для сохранения фона
+  element.style.backgroundColor = "#fff";
   element.style.overflow = "visible";
 
-  // Применяем canvas-рендер
   const canvas = await html2canvas(element, {
     scale: 2,
     scrollY: -window.scrollY,
@@ -30,29 +29,34 @@ export const generatePDF = async () => {
   element.setAttribute("class", originalClass);
 
   const imgData = canvas.toDataURL("image/png");
+
   const pdf = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
     format: 'a4',
   });
 
-  const pdfWidth = pdf.internal.pageSize.getWidth();
-  const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  const pageWidth = pdf.internal.pageSize.getWidth();  // 210mm
+  const pageHeight = pdf.internal.pageSize.getHeight(); // 297mm
 
-  // Если контент вмещается на одну страницу
-  if (pdfHeight <= pdf.internal.pageSize.getHeight()) {
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-  } else {
-    // Многостраничный PDF
-    let position = 0;
-    const pageHeight = pdf.internal.pageSize.getHeight();
+  // Рассчитываем соотношение
+  const imgProps = {
+    width: canvas.width,
+    height: canvas.height
+  };
 
-    while (position < pdfHeight) {
-      pdf.addImage(imgData, 'PNG', 0, -position, pdfWidth, pdfHeight);
-      position += pageHeight;
-      if (position < pdfHeight) pdf.addPage();
-    }
-  }
+  const ratio = imgProps.width / imgProps.height;
+  const pdfImgWidth = pageWidth;
+  const pdfImgHeight = pdfImgWidth / ratio;
 
+  // Если слишком высоко — уменьшаем до высоты страницы
+  const finalHeight = pdfImgHeight > pageHeight ? pageHeight : pdfImgHeight;
+  const finalWidth = finalHeight * ratio;
+
+  // Центрируем по вертикали (если меньше по высоте)
+  const x = 0;
+  const y = (pageHeight - finalHeight) / 2;
+
+  pdf.addImage(imgData, 'PNG', x, y, finalWidth, finalHeight);
   pdf.save("resume.pdf");
 };
