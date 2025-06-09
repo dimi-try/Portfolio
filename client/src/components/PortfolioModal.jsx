@@ -1,9 +1,17 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './PortfolioModal.module.css';
 
 const PortfolioModal = ({ project, onClose }) => {
   const { t } = useTranslation();
+  const [isImageError, setIsImageError] = useState(false);
+
+  const imageSrc = `/project${
+    project.title.includes('E-Commerce') ? 1 :
+    project.title.includes('Task') ? 2 :
+    3
+  }.jpg`;
 
   return (
     <AnimatePresence>
@@ -22,11 +30,22 @@ const PortfolioModal = ({ project, onClose }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <h3 className={styles.title}>{project.title}</h3>
-          <img
-            src={`/project${project.title.includes('E-Commerce') ? 1 : project.title.includes('Task') ? 2 : 3}.jpg`}
-            alt={project.title}
-            className={styles.image}
-          />
+
+          <div className={styles.imageContainer}>
+            {!isImageError ? (
+              <img
+                src={imageSrc}
+                alt={project.title}
+                className={styles.image}
+                onError={() => setIsImageError(true)}
+              />
+            ) : (
+              <div className={styles.placeholder}>
+                No Image Available
+              </div>
+            )}
+          </div>
+
           <p className={styles.details}>{project.details}</p>
           <p className={styles.technologies}>
             <strong>{t('portfolio.technologies')}:</strong> {project.technologies}

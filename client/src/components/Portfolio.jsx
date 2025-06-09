@@ -7,6 +7,7 @@ import styles from './Portfolio.module.css';
 const Portfolio = () => {
   const { t, ready } = useTranslation();
   const [selectedProject, setSelectedProject] = useState(null);
+  const [imageErrors, setImageErrors] = useState({});
 
   if (!ready) {
     return (
@@ -24,6 +25,10 @@ const Portfolio = () => {
 
   const projects = t('portfolio.projects', { returnObjects: true });
   const portfolioProjects = Array.isArray(projects) ? projects : [];
+
+  const handleImageError = (index) => {
+    setImageErrors((prev) => ({ ...prev, [index]: true }));
+  };
 
   return (
     <motion.section
@@ -44,14 +49,21 @@ const Portfolio = () => {
               transition={{ duration: 0.3 }}
               onClick={() => setSelectedProject(project)}
             >
-              <motion.img
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                src={`/project${index + 1}.jpg`}
-                alt={project.title}
-                className={styles.image}
-              />
+              <div className={styles.imageWrapper}>
+                {!imageErrors[index] ? (
+                  <motion.img
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    src={`/project${index + 1}.jpg`}
+                    alt={project.title}
+                    className={styles.image}
+                    onError={() => handleImageError(index)}
+                  />
+                ) : (
+                  <div className={styles.placeholder}>No Image Available</div>
+                )}
+              </div>
               <div className={styles.content}>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.description}>{project.description}</p>
