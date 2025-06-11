@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import PortfolioModal from './PortfolioModal';
 import styles from './Portfolio.module.css';
 
+// import.meta.glob с query
+const imageImports = import.meta.glob(
+  '/src/assets/projects/*.{jpg,png}',
+  { eager: true, import: 'default', query: '?url' }
+);
+
 const Portfolio = () => {
   const { t, ready } = useTranslation();
   const [selectedProject, setSelectedProject] = useState(null);
   const [imageErrors, setImageErrors] = useState({});
+
+  const images = useMemo(() => {
+    const sortedKeys = Object.keys(imageImports).sort(); // сортируем по имени
+    return sortedKeys.map((key) => imageImports[key]);
+  }, []);
 
   if (!ready) {
     return (
@@ -47,21 +58,21 @@ const Portfolio = () => {
               className={styles.card}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => setSelectedProject({ ...project, image: images[index] })}
             >
               <div className={styles.imageWrapper}>
-                {!imageErrors[index] ? (
+                {images[index] && !imageErrors[index] ? (
                   <motion.img
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
-                    src={`/project${index + 1}.jpg`}
+                    src={images[index]}
                     alt={project.title}
                     className={styles.image}
                     onError={() => handleImageError(index)}
                   />
                 ) : (
-                  <div className={styles.placeholder}>No Image Available (`/project${index + 1}.jpg`)</div>
+                  <div className={styles.placeholder}>No Image Available</div>
                 )}
               </div>
               <div className={styles.content}>

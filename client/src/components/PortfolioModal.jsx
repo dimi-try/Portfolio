@@ -1,13 +1,9 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './PortfolioModal.module.css';
 
 const PortfolioModal = ({ project, onClose }) => {
   const { t } = useTranslation();
-  const [isImageError, setIsImageError] = useState(false);
-
-  const imageSrc = `/project${project.id}.jpg`;
 
   return (
     <AnimatePresence>
@@ -28,17 +24,14 @@ const PortfolioModal = ({ project, onClose }) => {
           <h3 className={styles.title}>{project.title}</h3>
 
           <div className={styles.imageContainer}>
-            {!isImageError ? (
+            {project.image ? (
               <img
-                src={imageSrc}
+                src={project.image}
                 alt={project.title}
                 className={styles.image}
-                onError={() => setIsImageError(true)}
               />
             ) : (
-              <div className={styles.placeholder}>
-                No Image Available ({imageSrc})
-              </div>
+              <div className={styles.placeholder}>No Image Available</div>
             )}
           </div>
 
