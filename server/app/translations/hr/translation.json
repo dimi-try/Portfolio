@@ -31,6 +31,7 @@
     "title": "Portfelj",
     "projects": [
       {
+        "id": "1",
         "title": "Platforma za e-trgovinu",
         "description": "Potpuno funkcionalna internetska trgovina s integracijom plaćanja.",
         "details": "Izrađena s Reactom, Node.js i Stripe. Uključuje autentifikaciju korisnika, filtriranje proizvoda i responzivan dizajn.",
@@ -38,6 +39,7 @@
         "link": "https://github.com/yourusername/ecommerce"
       },
       {
+        "id": "2",
         "title": "Upravitelj zadataka",
         "description": "Aplikacija za produktivnost za upravljanje zadacima i timovima.",
         "details": "Razvijena pomoću Next.js i MongoDB. Uključuje ažuriranja u stvarnom vremenu i funkcije za timsku suradnju.",
@@ -45,6 +47,7 @@
         "link": "https://github.com/yourusername/taskmanager"
       },
       {
+        "id": "3",
         "title": "Web stranica portfelja",
         "description": "Osobna web stranica sa životopisom i podrškom za više jezika.",
         "details": "Izrađena s Reactom, Tailwind CSS i Node.js. Podržava generiranje PDF-a i funkcionalnost e-pošte.",

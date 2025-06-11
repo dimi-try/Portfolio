@@ -61,7 +61,7 @@ const Portfolio = () => {
                     onError={() => handleImageError(index)}
                   />
                 ) : (
-                  <div className={styles.placeholder}>No Image Available</div>
+                  <div className={styles.placeholder}>No Image Available (`/project${index + 1}.jpg`)</div>
                 )}
               </div>
               <div className={styles.content}>

@@ -31,6 +31,7 @@
     "title": "Portfolio",
     "projects": [
       {
+        "id": "1",
         "title": "E-Commerce Platform",
         "description": "A full-stack online store with payment integration.",
         "details": "Built with React, Node.js, and Stripe. Features user authentication, product filtering, and a responsive design.",
@@ -38,6 +39,7 @@
         "link": "https://github.com/yourusername/ecommerce"
       },
       {
+        "id": "2",
         "title": "Task Manager",
         "description": "A productivity app for managing tasks and teams.",
         "details": "Developed using Next.js and MongoDB. Includes real-time updates and team collaboration features.",
@@ -45,6 +47,7 @@
         "link": "https://github.com/yourusername/taskmanager"
       },
       {
+        "id": "3",
         "title": "Portfolio Website",
         "description": "A personal resume website with multi-language support.",
         "details": "Created with React, Tailwind CSS, and Node.js. Supports PDF generation and email functionality.",

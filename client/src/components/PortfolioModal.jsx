@@ -7,11 +7,7 @@ const PortfolioModal = ({ project, onClose }) => {
   const { t } = useTranslation();
   const [isImageError, setIsImageError] = useState(false);
 
-  const imageSrc = `/project${
-    project.title.includes('E-Commerce') ? 1 :
-    project.title.includes('Task') ? 2 :
-    3
-  }.jpg`;
+  const imageSrc = `/project${project.id}.jpg`;
 
   return (
     <AnimatePresence>
@@ -41,7 +37,7 @@ const PortfolioModal = ({ project, onClose }) => {
               />
             ) : (
               <div className={styles.placeholder}>
-                No Image Available
+                No Image Available ({imageSrc})
               </div>
             )}
           </div>
