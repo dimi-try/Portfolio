@@ -4,12 +4,17 @@ import html2canvas from 'html2canvas';
 export const generatePDF = async () => {
   const element = document.getElementById('resume-content');
 
+  if (!element) {
+    console.error("Element #resume-content not found");
+    return;
+  }
+
   // Сохраняем старые стили
   const originalStyle = element.getAttribute("style") || "";
   const originalClass = element.getAttribute("class") || "";
 
-  // A4 в пикселях при 96dpi ≈ 794 x 1123
-  element.style.width = "794px";
+  // Применяем стили A4-страницы для захвата
+  element.style.width = "794px"; // A4 при 96dpi
   element.style.minHeight = "1123px";
   element.style.padding = "40px";
   element.style.boxSizing = "border-box";
@@ -17,6 +22,20 @@ export const generatePDF = async () => {
   element.style.backgroundColor = "#fff";
   element.style.overflow = "visible";
 
+  // Временный стиль для изображений чтобы не растягивались в своих контейнерах
+  const style = document.createElement('style');
+  style.innerHTML = `
+    #resume-content img {
+      object-fit: contain !important;
+      max-width: 100% !important;
+      height: auto !important;
+      display: block;
+      margin: 0 auto;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Захват DOM в canvas
   const canvas = await html2canvas(element, {
     scale: 2,
     scrollY: -window.scrollY,
@@ -24,9 +43,10 @@ export const generatePDF = async () => {
     backgroundColor: "#ffffff"
   });
 
-  // Восстанавливаем стили
+  // Восстанавливаем оригинальные стили
   element.setAttribute("style", originalStyle);
   element.setAttribute("class", originalClass);
+  document.head.removeChild(style);
 
   const imgData = canvas.toDataURL("image/png");
 
@@ -36,27 +56,29 @@ export const generatePDF = async () => {
     format: 'a4',
   });
 
-  const pageWidth = pdf.internal.pageSize.getWidth();  // 210mm
+  const pageWidth = pdf.internal.pageSize.getWidth();   // 210mm
   const pageHeight = pdf.internal.pageSize.getHeight(); // 297mm
 
-  // Рассчитываем соотношение
-  const imgProps = {
-    width: canvas.width,
-    height: canvas.height
-  };
+  const canvasWidth = canvas.width;
+  const canvasHeight = canvas.height;
 
-  const ratio = imgProps.width / imgProps.height;
-  const pdfImgWidth = pageWidth;
-  const pdfImgHeight = pdfImgWidth / ratio;
+  // Соотношение сторон canvas
+  const ratio = canvasWidth / canvasHeight;
+
+  // Ширина и высота изображения в PDF
+  let pdfImgWidth = pageWidth;
+  let pdfImgHeight = pdfImgWidth / ratio;
 
   // Если слишком высоко — уменьшаем до высоты страницы
-  const finalHeight = pdfImgHeight > pageHeight ? pageHeight : pdfImgHeight;
-  const finalWidth = finalHeight * ratio;
+  if (pdfImgHeight > pageHeight) {
+    pdfImgHeight = pageHeight;
+    pdfImgWidth = pdfImgHeight * ratio;
+  }
 
-  // Центрируем по вертикали (если меньше по высоте)
-  const x = 0;
-  const y = (pageHeight - finalHeight) / 2;
+  // Центровка по вертикали и горизонтали
+  const x = (pageWidth - pdfImgWidth) / 2;
+  const y = (pageHeight - pdfImgHeight) / 2;
 
-  pdf.addImage(imgData, 'PNG', x, y, finalWidth, finalHeight);
+  pdf.addImage(imgData, 'PNG', x, y, pdfImgWidth, pdfImgHeight);
   pdf.save("resume.pdf");
 };

@@ -22,11 +22,19 @@ const PortfolioModal = ({ project, onClose }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <h3 className={styles.title}>{project.title}</h3>
-          <img
-            src={`/project${project.title.includes('E-Commerce') ? 1 : project.title.includes('Task') ? 2 : 3}.jpg`}
-            alt={project.title}
-            className={styles.image}
-          />
+
+          <div className={styles.imageContainer}>
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={project.title}
+                className={styles.image}
+              />
+            ) : (
+              <div className={styles.placeholder}>No Image Available</div>
+            )}
+          </div>
+
           <p className={styles.details}>{project.details}</p>
           <p className={styles.technologies}>
             <strong>{t('portfolio.technologies')}:</strong> {project.technologies}
