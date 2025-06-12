@@ -57,7 +57,10 @@ const SocialLinks = () => {
             className={styles.link}
           >
             {link.icon}
-            <span>{link.name}</span>
+            {/* ссылки только печатаем */}
+            <span className={`print-only`}>{link.url}</span>
+            {/* названия только показываем без печати */}
+            <span className={`no-print`}>{link.name}</span>
           </a>
         ))}
       </div>

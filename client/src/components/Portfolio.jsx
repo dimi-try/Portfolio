@@ -79,7 +79,7 @@ const Portfolio = () => {
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.description}>{project.description}</p>
                 <p className={styles.technologies}>{project.technologies}</p>
-                <div className={styles.links}>
+                <div className={`${styles.links} print-only`}>
                   {project.link.map((url, index) => (
                     <a
                       key={index}
@@ -92,7 +92,7 @@ const Portfolio = () => {
                     </a>
                   ))}
                 </div>
-                <button className={styles.button}>
+                <button className={`${styles.button} no-print`}>
                   {t('portfolio.viewDetails')}
                 </button>
               </div>

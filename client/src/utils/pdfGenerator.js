@@ -9,9 +9,15 @@ export const generatePDF = async () => {
     return;
   }
 
-  // Сохраняем старые стили
+  // Сохраняем исходные стили и классы
   const originalStyle = element.getAttribute("style") || "";
   const originalClass = element.getAttribute("class") || "";
+  const originalDisplayStyles = new Map(); // Для сохранения display стилей элементов
+
+  // Сохраняем исходные display стили для элементов с классами no-print и print-only
+  document.querySelectorAll('.no-print, .print-only').forEach((el) => {
+    originalDisplayStyles.set(el, el.style.display || '');
+  });
 
   // Применяем стили A4-страницы для захвата
   element.style.width = "794px"; // A4 при 96dpi
@@ -22,7 +28,7 @@ export const generatePDF = async () => {
   element.style.backgroundColor = "#fff";
   element.style.overflow = "visible";
 
-  // Временный стиль для изображений чтобы не растягивались в своих контейнерах
+  // Временные стили для изображений
   const style = document.createElement('style');
   style.innerHTML = `
     #resume-content img {
@@ -32,22 +38,42 @@ export const generatePDF = async () => {
       display: block;
       margin: 0 auto;
     }
+    .no-print {
+      display: none !important;
+    }
+    .print-only {
+      display: block !important;
+    }
   `;
   document.head.appendChild(style);
+
+  // Скрываем no-print элементы и показываем print-only
+  document.querySelectorAll('.no-print').forEach((el) => {
+    el.style.display = 'none';
+  });
+  document.querySelectorAll('.print-only').forEach((el) => {
+    el.style.display = 'block';
+  });
 
   // Захват DOM в canvas
   const canvas = await html2canvas(element, {
     scale: 2,
     scrollY: -window.scrollY,
     useCORS: true,
-    backgroundColor: "#ffffff"
+    backgroundColor: "#ffffff",
   });
 
-  // Восстанавливаем оригинальные стили
+  // Восстанавливаем исходные стили
   element.setAttribute("style", originalStyle);
   element.setAttribute("class", originalClass);
   document.head.removeChild(style);
 
+  // Восстанавливаем display стили
+  originalDisplayStyles.forEach((display, el) => {
+    el.style.display = display;
+  });
+
+  // Создаем PDF
   const imgData = canvas.toDataURL("image/png");
 
   const pdf = new jsPDF({

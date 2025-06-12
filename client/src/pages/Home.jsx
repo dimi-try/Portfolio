@@ -19,7 +19,7 @@ const Home = () => {
         <Education />
         <Portfolio />
         <SocialLinks />
-        <div className={styles.buttonContainer}>
+        <div className={`${styles.buttonContainer} no-print`}>
           <PdfDownloadButton />
         </div>
       </main>
