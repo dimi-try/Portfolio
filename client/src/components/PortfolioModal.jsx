@@ -39,14 +39,19 @@ const PortfolioModal = ({ project, onClose }) => {
           <p className={styles.technologies}>
             <strong>{t('portfolio.technologies')}:</strong> {project.technologies}
           </p>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.link}
-          >
-            {project.link}
-          </a>
+          <div className={styles.links}>
+            {project.link.map((url, index) => (
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                {url.includes('github') ? 'GitHub' : 'Demo'}
+              </a>
+            ))}
+          </div>
           <button onClick={onClose} className={styles.closeButton}>
             {t('portfolio.close')}
           </button>

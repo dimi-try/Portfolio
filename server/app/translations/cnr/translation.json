@@ -1,25 +1,16 @@
 {
   "languageName": "Crnogorski",
   "header": {
-    "title": "Moj životopis",
-    "languageSelector": "Izaberi jezik"
+    "title": "Moj CV",
+    "languageSelector": "Izaberite jezik"
   },
-  "highlights": {
-    "title": "Dostignuća",
-    "items": [
-      "Osvojio prvo mjesto na takmičenju u programiranju 2023. godine.",
-      "Implementirao sistem za upravljanje projektima, povećavši efikasnost za 30%.",
-      "Certifikovani stručnjak za React i Node.js."
-    ]
-  },
-  "experience": {
-    "title": "Iskustvo",
+  "about": {
+    "title": "O meni",
     "items": [
       {
-        "company": "Tech Corp",
-        "role": "Frontend programer",
-        "period": "2022 - sada",
-        "description": "Razvijao responzivne veb aplikacije koristeći React."
+        "fullName": "Vuković Marko",
+        "profession": "Frontend programer",
+        "description": "Iskusan frontend programer sa preko 3 godine iskustva u izradi responzivnih veb aplikacija, strastven prema modernim tehnologijama i efikasnim rješenjima."
       }
     ]
   },
@@ -27,39 +18,71 @@
     "title": "Vještine",
     "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
   },
+  "experience": {
+    "title": "Radno iskustvo",
+    "items": [
+      {
+        "company": "Tech Corp",
+        "role": "Frontend programer",
+        "period": "2022 - Sada",
+        "description": "Razvijao responzivne veb aplikacije koristeći React."
+      }
+    ]
+  },
+  "education": {
+    "title": "Obrazovanje",
+    "items": [
+      {
+        "institution": "Univerzitet Crne Gore",
+        "specialty": "Informacioni sistemi",
+        "degree": "Diplomirani inženjer",
+        "period": "2017 - 2021"
+      }
+    ]
+  },
   "portfolio": {
     "title": "Portfolio",
+    "technologies": "Korišćene tehnologije",
     "projects": [
       {
         "id": "1",
-        "title": "Platforma za elektronsku trgovinu",
-        "description": "Kompletna onlajn prodavnica sa integracijom plaćanja.",
-        "details": "Izgrađena sa Reactom, Node.js i Stripe. Uključuje autentifikaciju korisnika, filtriranje proizvoda i responzivan dizajn.",
+        "title": "E-komercijalna platforma",
+        "description": "Platforma za online kupovinu sa integracijom plaćanja.",
+        "details": "Izgrađena sa React, Node.js i Stripe. Uključuje autentifikaciju korisnika, filtriranje proizvoda i responzivan dizajn.",
         "technologies": "React, Node.js, Stripe",
-        "link": "https://github.com/yourusername/ecommerce"
+        "link": [
+          "https://demoproject1.com/",
+          "https://github.com/yourusername/ecommerce"
+        ]
       },
       {
         "id": "2",
         "title": "Menadžer zadataka",
-        "description": "Aplikacija za produktivnost za upravljanje zadacima i timovima.",
-        "details": "Razvijena koristeći Next.js i MongoDB. Podržava ažuriranja u realnom vremenu i funkcije za timsku saradnju.",
+        "description": "Aplikacija za upravljanje zadacima i timovima.",
+        "details": "Razvijena koristeći Next.js i MongoDB. Uključuje ažuriranja u realnom vremenu i funkcije za saradnju tima.",
         "technologies": "Next.js, MongoDB, WebSocket",
-        "link": "https://github.com/yourusername/taskmanager"
+        "link": [
+          "https://demoproject2.com/",
+          "https://github.com/yourusername/taskmanager"
+        ]
       },
       {
         "id": "3",
-        "title": "Veb sajt portfolija",
-        "description": "Lični veb sajt sa životopisom i podrškom za više jezika.",
-        "details": "Kreiran sa Reactom, Tailwind CSS i Node.js. Podržava generisanje PDF-a i funkcionalnost e-pošte.",
+        "title": "Lični veb-sajt",
+        "description": "Lični sajt-CV sa podrškom za više jezika.",
+        "details": "Kreiran sa React, Tailwind CSS i Node.js. Podržava generisanje PDF-a.",
         "technologies": "React, Tailwind CSS, Node.js",
-        "link": "https://github.com/yourusername/portfolio"
+        "link": [
+          "https://demoproject3.com/",
+          "https://github.com/yourusername/portfolio"
+        ]
       }
     ],
     "viewDetails": "Pogledaj detalje",
     "close": "Zatvori"
   },
   "social": {
-    "title": "Poveži se sa mnom"
+    "title": "Povežite se sa mnom"
   },
-  "downloadPDF": "Preuzmi PDF"
+  "downloadPDF": "Preuzmi CV"
 }

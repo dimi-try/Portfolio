@@ -4,13 +4,19 @@
     "title": "Мое резюме",
     "languageSelector": "Выберите язык"
   },
-  "highlights": {
-    "title": "Достижения",
+  "about": {
+    "title": "О себе",
     "items": [
-      "Занял первое место на соревновании по программированию в 2023 году.",
-      "Внедрил систему управления проектами, повысив эффективность на 30%.",
-      "Сертифицированный специалист по React и Node.js."
+      {
+        "fullName": "Иванов Иван",
+        "profession": "Фронтенд-разработчик",
+        "description": "Опытный фронтенд-разработчик с 3+ годами в разработке адаптивных веб-приложений, увлеченный современными технологиями и эффективными решениями."
+      }
     ]
+  },
+  "skills": {
+    "title": "Навыки",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
   },
   "experience": {
     "title": "Опыт работы",
@@ -23,12 +29,20 @@
       }
     ]
   },
-  "skills": {
-    "title": "Навыки",
-    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  "education": {
+    "title": "Образование",
+    "items": [
+      {
+        "institution": "Московский Государственный Университет",
+        "specialty": "Информационные системы",
+        "degree": "Бакалавр",
+        "period": "2017 - 2021"
+      }
+    ]
   },
   "portfolio": {
     "title": "Портфолио",
+    "technologies": "Использованные технологии",
     "projects": [
       {
         "id": "1",
@@ -36,7 +50,10 @@
         "description": "Полнофункциональный интернет-магазин с интеграцией платежей.",
         "details": "Создан с использованием React, Node.js и Stripe. Включает аутентификацию пользователей, фильтрацию продуктов и адаптивный дизайн.",
         "technologies": "React, Node.js, Stripe",
-        "link": "https://github.com/yourusername/ecommerce"
+        "link": [
+          "https://demoproject1.com/",
+          "https://github.com/yourusername/ecommerce"
+        ]
       },
       {
         "id": "2",
@@ -44,7 +61,10 @@
         "description": "Приложение для управления задачами и командами.",
         "details": "Разработано с использованием Next.js и MongoDB. Поддерживает обновления в реальном времени и функции совместной работы.",
         "technologies": "Next.js, MongoDB, WebSocket",
-        "link": "https://github.com/yourusername/taskmanager"
+        "link": [
+          "https://demoproject2.com/",
+          "https://github.com/yourusername/taskmanager"
+        ]
       },
       {
         "id": "3",
@@ -52,7 +72,10 @@
         "description": "Личный сайт-резюме с поддержкой нескольких языков.",
         "details": "Создан с использованием React, Tailwind CSS и Node.js. Поддерживает генерацию PDF и отправку email.",
         "technologies": "React, Tailwind CSS, Node.js",
-        "link": "https://github.com/yourusername/portfolio"
+        "link": [
+          "https://demoproject3.com/",
+          "https://github.com/yourusername/portfolio"
+        ]
       }
     ],
     "viewDetails": "Посмотреть детали",
@@ -61,5 +84,5 @@
   "social": {
     "title": "Связаться со мной"
   },
-  "downloadPDF": "Скачать PDF"
+  "downloadPDF": "Скачать CV"
 }

@@ -4,13 +4,19 @@
     "title": "Моє резюме",
     "languageSelector": "Оберіть мову"
   },
-  "highlights": {
-    "title": "Досягнення",
+  "about": {
+    "title": "Про мене",
     "items": [
-      "Здобув перше місце на змаганні з програмування у 2023 році.",
-      "Впровадив систему управління проєктами, підвищивши ефективність на 30%.",
-      "Сертифікований спеціаліст з React та Node.js."
+      {
+        "fullName": "Петренко Тарас",
+        "profession": "Фронтенд-розробник",
+        "description": "Досвідчений фронтенд-розробник із понад 3 роками розробки адаптивних веб-додатків, захоплений сучасними технологіями та ефективними рішеннями."
+      }
     ]
+  },
+  "skills": {
+    "title": "Навички",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
   },
   "experience": {
     "title": "Досвід роботи",
@@ -23,43 +29,60 @@
       }
     ]
   },
-  "skills": {
-    "title": "Навички",
-    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  "education": {
+    "title": "Освіта",
+    "items": [
+      {
+        "institution": "Київський національний університет",
+        "specialty": "Інформаційні системи",
+        "degree": "Бакалавр",
+        "period": "2017 - 2021"
+      }
+    ]
   },
   "portfolio": {
     "title": "Портфоліо",
+    "technologies": "Використані технології",
     "projects": [
       {
         "id": "1",
         "title": "Платформа електронної комерції",
-        "description": "Повнофункціональний інтернет-магазин з інтеграцією платежів.",
+        "description": "Повнофункціональний інтернет-магазин із інтеграцією платежів.",
         "details": "Створений з використанням React, Node.js та Stripe. Включає автентифікацію користувачів, фільтрацію продуктів та адаптивний дизайн.",
         "technologies": "React, Node.js, Stripe",
-        "link": "https://github.com/yourusername/ecommerce"
+        "link": [
+          "https://demoproject1.com/",
+          "https://github.com/yourusername/ecommerce"
+        ]
       },
       {
         "id": "2",
         "title": "Менеджер завдань",
-        "description": "Додаток для продуктивності для управління завданнями та командами.",
-        "details": "Розроблений з використанням Next.js та MongoDB. Підтримує оновлення в реальному часі та функції для командної роботи.",
+        "description": "Додаток для управління завданнями та командами.",
+        "details": "Розроблений з використанням Next.js та MongoDB. Підтримує оновлення в реальному часі та функції спільної роботи.",
         "technologies": "Next.js, MongoDB, WebSocket",
-        "link": "https://github.com/yourusername/taskmanager"
+        "link": [
+          "https://demoproject2.com/",
+          "https://github.com/yourusername/taskmanager"
+        ]
       },
       {
         "id": "3",
         "title": "Сайт-портфоліо",
         "description": "Особистий сайт-резюме з підтримкою кількох мов.",
-        "details": "Створений з використанням React, Tailwind CSS та Node.js. Підтримує генерацію PDF та функціонал електронної пошти.",
+        "details": "Створений з використанням React, Tailwind CSS та Node.js. Підтримує генерацію PDF та відправлення email.",
         "technologies": "React, Tailwind CSS, Node.js",
-        "link": "https://github.com/yourusername/portfolio"
+        "link": [
+          "https://demoproject3.com/",
+          "https://github.com/yourusername/portfolio"
+        ]
       }
     ],
     "viewDetails": "Переглянути деталі",
     "close": "Закрити"
   },
   "social": {
-    "title": "Зв’яжіться зі мною"
+    "title": "Зв’язатися зі мною"
   },
-  "downloadPDF": "Завантажити PDF"
+  "downloadPDF": "Завантажити CV"
 }

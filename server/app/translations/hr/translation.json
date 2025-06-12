@@ -4,22 +4,13 @@
     "title": "Moj životopis",
     "languageSelector": "Odaberite jezik"
   },
-  "highlights": {
-    "title": "Postignuća",
-    "items": [
-      "Osvojio prvo mjesto na programerskom natjecanju 2023. godine.",
-      "Implementirao sustav za upravljanje projektima, povećavši učinkovitost za 30%.",
-      "Certificirani stručnjak za React i Node.js."
-    ]
-  },
-  "experience": {
-    "title": "Iskustvo",
+  "about": {
+    "title": "O meni",
     "items": [
       {
-        "company": "Tech Corp",
-        "role": "Frontend programer",
-        "period": "2022 - danas",
-        "description": "Razvijao responzivne web aplikacije koristeći React."
+        "fullName": "Horvat Ivan",
+        "profession": "Frontend programer",
+        "description": "Iskusan frontend programer s više od 3 godine iskustva u izradi responzivnih web aplikacija, strastven prema modernim tehnologijama i učinkovitim rješenjima."
       }
     ]
   },
@@ -27,32 +18,64 @@
     "title": "Vještine",
     "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
   },
+  "experience": {
+    "title": "Radno iskustvo",
+    "items": [
+      {
+        "company": "Tech Corp",
+        "role": "Frontend programer",
+        "period": "2022 - Sada",
+        "description": "Razvijao responzivne web aplikacije koristeći React."
+      }
+    ]
+  },
+  "education": {
+    "title": "Obrazovanje",
+    "items": [
+      {
+        "institution": "Sveučilište u Zagrebu",
+        "specialty": "Informacijski sustavi",
+        "degree": "Diploming. inf.",
+        "period": "2017 - 2021"
+      }
+    ]
+  },
   "portfolio": {
     "title": "Portfelj",
+    "technologies": "Korištene tehnologije",
     "projects": [
       {
         "id": "1",
-        "title": "Platforma za e-trgovinu",
-        "description": "Potpuno funkcionalna internetska trgovina s integracijom plaćanja.",
-        "details": "Izrađena s Reactom, Node.js i Stripe. Uključuje autentifikaciju korisnika, filtriranje proizvoda i responzivan dizajn.",
+        "title": "E-komarcijalna platforma",
+        "description": "Platforma za online kupnju s integracijom plaćanja.",
+        "details": "Izgrađena s Reactom, Node.js i Stripeom. Uključuje autentifikaciju korisnika, filtriranje proizvoda i responzivan dizajn.",
         "technologies": "React, Node.js, Stripe",
-        "link": "https://github.com/yourusername/ecommerce"
+        "link": [
+          "https://demoproject1.com/",
+          "https://github.com/yourusername/ecommerce"
+        ]
       },
       {
         "id": "2",
         "title": "Upravitelj zadataka",
-        "description": "Aplikacija za produktivnost za upravljanje zadacima i timovima.",
-        "details": "Razvijena pomoću Next.js i MongoDB. Uključuje ažuriranja u stvarnom vremenu i funkcije za timsku suradnju.",
+        "description": "Aplikacija za upravljanje zadacima i timovima.",
+        "details": "Razvijena koristeći Next.js i MongoDB. Uključuje ažuriranja u realnom vremenu i funkcije za timsku suradnju.",
         "technologies": "Next.js, MongoDB, WebSocket",
-        "link": "https://github.com/yourusername/taskmanager"
+        "link": [
+          "https://demoproject2.com/",
+          "https://github.com/yourusername/taskmanager"
+        ]
       },
       {
         "id": "3",
-        "title": "Web stranica portfelja",
-        "description": "Osobna web stranica sa životopisom i podrškom za više jezika.",
-        "details": "Izrađena s Reactom, Tailwind CSS i Node.js. Podržava generiranje PDF-a i funkcionalnost e-pošte.",
+        "title": "Osobna web stranica",
+        "description": "Osobna web stranica s životopisom i podrškom za više jezika.",
+        "details": "Kreirana s Reactom, Tailwind CSS-om i Node.js-om. Podržava generiranje PDF-a.",
         "technologies": "React, Tailwind CSS, Node.js",
-        "link": "https://github.com/yourusername/portfolio"
+        "link": [
+          "https://demoproject3.com/",
+          "https://github.com/yourusername/portfolio"
+        ]
       }
     ],
     "viewDetails": "Pogledaj detalje",
@@ -61,5 +84,5 @@
   "social": {
     "title": "Povežite se sa mnom"
   },
-  "downloadPDF": "Preuzmi PDF"
+  "downloadPDF": "Preuzmi CV"
 }

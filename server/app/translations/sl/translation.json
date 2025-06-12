@@ -4,22 +4,13 @@
     "title": "Moj življenjepis",
     "languageSelector": "Izberite jezik"
   },
-  "highlights": {
-    "title": "Dosežki",
-    "items": [
-      "Leta 2023 zmagal na prvem mestu na programerskem tekmovanju.",
-      "Vzpostavil sistem za upravljanje projektov, ki je povečal učinkovitost za 30%.",
-      "Certificiran specialist za React in Node.js."
-    ]
-  },
-  "experience": {
-    "title": "Izkušnje",
+  "about": {
+    "title": "O meni",
     "items": [
       {
-        "company": "Tech Corp",
-        "role": "Razvijalec spletnih vmesnikov",
-        "period": "2022 - danes",
-        "description": "Razvijal odzivne spletne aplikacije z uporabo Reacta."
+        "fullName": "Novak Luka",
+        "profession": "Frontend razvijalec",
+        "description": "Izkušen frontend razvijalec z več kot 3 leti izkušenj pri razvoju prilagodljivih spletnih aplikacij, navdušen nad sodobnimi tehnologijami in učinkovitimi rešitvami."
       }
     ]
   },
@@ -27,32 +18,64 @@
     "title": "Veščine",
     "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
   },
+  "experience": {
+    "title": "Delovne izkušnje",
+    "items": [
+      {
+        "company": "Tech Corp",
+        "role": "Frontend razvijalec",
+        "period": "2022 - danes",
+        "description": "Razvijal prilagodljive spletne aplikacije z uporabo Reacta."
+      }
+    ]
+  },
+  "education": {
+    "title": "Izobrazba",
+    "items": [
+      {
+        "institution": "Univerza v Ljubljani",
+        "specialty": "Informacijski sistemi",
+        "degree": "Diplomirani inženir",
+        "period": "2017 - 2021"
+      }
+    ]
+  },
   "portfolio": {
     "title": "Portfelj",
+    "technologies": "Uporabljene tehnologije",
     "projects": [
       {
         "id": "1",
-        "title": "Platforma za e-trgovino",
+        "title": "Platforma za elektronsko poslovanje",
         "description": "Celovita spletna trgovina z integracijo plačil.",
-        "details": "Zgrajen z Reactom, Node.js in Stripe. Vključuje avtentikacijo uporabnikov, filtriranje izdelkov in odziven dizajn.",
+        "details": "Razvita z uporabo Reacta, Node.js in Stripe. Vključuje avtentikacijo uporabnikov, filtriranje izdelkov in prilagodljiv dizajn.",
         "technologies": "React, Node.js, Stripe",
-        "link": "https://github.com/yourusername/ecommerce"
+        "link": [
+          "https://demoproject1.com/",
+          "https://github.com/yourusername/ecommerce"
+        ]
       },
       {
         "id": "2",
         "title": "Upravitelj nalog",
-        "description": "Aplikacija za produktivnost za upravljanje nalog in ekip.",
-        "details": "Razvit z Next.js in MongoDB. Vključuje posodobitve v realnem času in funkcije za sodelovanje ekipe.",
+        "description": "Aplikacija za upravljanje nalog in ekip.",
+        "details": "Razvita z uporabo Next.js in MongoDB. Podpira posodobitve v realnem času in funkcije za sodelovanje ekipe.",
         "technologies": "Next.js, MongoDB, WebSocket",
-        "link": "https://github.com/yourusername/taskmanager"
+        "link": [
+          "https://demoproject2.com/",
+          "https://github.com/yourusername/taskmanager"
+        ]
       },
       {
         "id": "3",
-        "title": "Osebna spletna stran portfelja",
+        "title": "Osebna spletna stran",
         "description": "Osebna spletna stran z življenjepisom in podporo za več jezikov.",
-        "details": "Ustvarjen z Reactom, Tailwind CSS in Node.js. Podpira generiranje PDF in funkcionalnost e-pošte.",
+        "details": "Ustvarjena z uporabo Reacta, Tailwind CSS in Node.js. Podpira generiranje PDF-jev.",
         "technologies": "React, Tailwind CSS, Node.js",
-        "link": "https://github.com/yourusername/portfolio"
+        "link": [
+          "https://demoproject3.com/",
+          "https://github.com/yourusername/portfolio"
+        ]
       }
     ],
     "viewDetails": "Ogled podrobnosti",
@@ -61,5 +84,5 @@
   "social": {
     "title": "Povežite se z mano"
   },
-  "downloadPDF": "Prenesi PDF"
+  "downloadPDF": "Prenesi CV"
 }

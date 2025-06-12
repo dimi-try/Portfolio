@@ -1,5 +1,6 @@
 import Header from '../components/Header';
-import Highlights from '../components/Highlights';
+import About from '../components/About';
+import Education from '../components/Education';
 import Experience from '../components/Experience';
 import Skills from '../components/Skills';
 import Portfolio from '../components/Portfolio';
@@ -12,9 +13,10 @@ const Home = () => {
     <div className={styles.container}>
       <Header />
       <main className={styles.main} id="resume-content">
-        <Highlights />
-        <Experience />
+        <About />
         <Skills />
+        <Experience />
+        <Education />
         <Portfolio />
         <SocialLinks />
         <div className={styles.buttonContainer}>
