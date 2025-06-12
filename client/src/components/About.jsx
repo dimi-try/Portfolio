@@ -1,11 +1,37 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 import styles from './About.module.css';
 
 const About = () => {
   const { t } = useTranslation();
 
   const aboutItems = t('about.items', { returnObjects: true });
+
+  // Загружаем английское имя и сохраняем в localStorage
+  useEffect(() => {
+    const loadEnglishName = async () => {
+      try {
+        console.log('Загружаем английский перевод для имени...');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/translations/en`);
+        const enTranslations = response.data;
+        if (enTranslations?.about?.items?.[0]?.fullName) {
+          const englishFullName = enTranslations.about.items[0].fullName;
+          localStorage.setItem('englishFullName', englishFullName);
+          console.log('Сохранено englishFullName в localStorage:', englishFullName);
+        } else {
+          console.warn('fullName не найдено в английском переводе');
+        }
+      } catch (error) {
+        console.error('Ошибка загрузки английского перевода:', error);
+      }
+    };
+
+    if (!localStorage.getItem('englishFullName')) {
+      loadEnglishName();
+    }
+  }, []);
 
   return (
     <motion.section

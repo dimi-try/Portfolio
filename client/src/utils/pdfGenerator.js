@@ -106,5 +106,25 @@ export const generatePDF = async () => {
   const y = (pageHeight - pdfImgHeight) / 2;
 
   pdf.addImage(imgData, 'PNG', x, y, pdfImgWidth, pdfImgHeight);
-  pdf.save("resume.pdf");
+
+  // Извлекаем английское имя из localStorage
+  let fullName = '';
+  try {
+    const englishFullName = localStorage.getItem('englishFullName');
+    console.log('Извлечено englishFullName:', englishFullName);
+    if (englishFullName) {
+      fullName = englishFullName.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '');
+      console.log('Форматированное имя для файла:', fullName);
+    } else {
+      fullName = "Resume";
+      console.warn('englishFullName не найдено в localStorage');
+    }
+  } catch (error) {
+    console.error('Ошибка при извлечении englishFullName:', error);
+  }
+
+  // Сохраняем PDF
+  const fileName = `${fullName}.pdf`;
+  console.log('Сохраняем PDF как:', fileName);
+  pdf.save(fileName);
 };
