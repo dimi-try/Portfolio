@@ -19,16 +19,25 @@ export const generatePDF = async () => {
     originalDisplayStyles.set(el, el.style.display || '');
   });
 
+  // Определяем текущую тему
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  console.log('Текущая тема:', currentTheme);
+
+  // Получаем значение --background
+  const rootStyles = getComputedStyle(document.documentElement);
+  let backgroundColor = rootStyles.getPropertyValue('--background').trim();
+  console.log('Извлечённый --background:', backgroundColor);
+
   // Применяем стили A4-страницы для захвата
   element.style.width = "794px"; // A4 при 96dpi
   element.style.minHeight = "1123px";
   element.style.padding = "40px";
   element.style.boxSizing = "border-box";
   element.style.zoom = "1";
-  element.style.backgroundColor = "#fff";
+  element.style.backgroundColor = backgroundColor; // Используем тему сайта
   element.style.overflow = "visible";
 
-  // Временные стили для изображений
+  // Временные стили для изображений и элементов
   const style = document.createElement('style');
   style.innerHTML = `
     #resume-content img {
@@ -60,7 +69,7 @@ export const generatePDF = async () => {
     scale: 2,
     scrollY: -window.scrollY,
     useCORS: true,
-    backgroundColor: "#ffffff",
+    backgroundColor: backgroundColor, // Фон из --background
   });
 
   // Восстанавливаем исходные стили
@@ -105,6 +114,11 @@ export const generatePDF = async () => {
   const x = (pageWidth - pdfImgWidth) / 2;
   const y = (pageHeight - pdfImgHeight) / 2;
 
+  // Устанавливаем фон страницы PDF
+  pdf.setFillColor(backgroundColor);
+  pdf.rect(0, 0, pageWidth, pageHeight, 'F');
+
+  // Добавляем изображение
   pdf.addImage(imgData, 'PNG', x, y, pdfImgWidth, pdfImgHeight);
 
   // Извлекаем английское имя из localStorage
