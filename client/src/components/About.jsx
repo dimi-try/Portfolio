@@ -41,10 +41,9 @@ const About = () => {
       className={styles.section}
       id="about-section"
     >
-      <h2 className={styles.title}>{t('about.title')}</h2>
       {aboutItems.map((item, index) => (
         <div key={index} className={styles.item}>
-          <h3 className={styles.fullName}>{item.fullName}</h3>
+          <h2 className={styles.title}>{item.fullName}</h2>
           <p className={styles.profession}>{item.profession}</p>
           <p className={styles.description}>{item.description}</p>
         </div>
