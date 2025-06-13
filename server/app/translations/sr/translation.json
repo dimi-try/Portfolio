@@ -4,16 +4,22 @@
     "title": "Мој Резиме",
     "languageSelector": "Изаберите језик"
   },
-  "highlights": {
-    "title": "Истакнуто",
+  "about": {
+    "title": "О мени",
     "items": [
-      "Освојио прво место на такмичењу у програмирању 2023.",
-      "Увео систем управљања пројектима, повећавши ефикасност за 30%.",
-      "Сертификовани стручњак за React и Node.js."
+      {
+        "fullName": "Петровић Никола",
+        "profession": "Фронтенд програмер",
+        "description": "Искусан фронтенд програмер са преко 3 године искуства у изради респонзивних веб апликација, страствен према модерним технологијама и ефикасним решењима."
+      }
     ]
   },
+  "skills": {
+    "title": "Вештине",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  },
   "experience": {
-    "title": "Искуство",
+    "title": "Радно искуство",
     "items": [
       {
         "company": "Тех Корп",
@@ -23,12 +29,20 @@
       }
     ]
   },
-  "skills": {
-    "title": "Вештине",
-    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  "education": {
+    "title": "Образовање",
+    "items": [
+      {
+        "institution": "Универзитет у Београду",
+        "specialty": "Информациони системи",
+        "degree": "Дипломирани инжењер",
+        "period": "2017 - 2021"
+      }
+    ]
   },
   "portfolio": {
     "title": "Портфолио",
+    "technologies": "Коришћене технологије",
     "projects": [
       {
         "id": "1",
@@ -36,7 +50,10 @@
         "description": "Платформа за онлајн куповину са интеграцијом плаћања.",
         "details": "Изграђена са React, Node.js и Stripe. Укључује аутентификацију корисника, филтрирање производа и респонзиван дизајн.",
         "technologies": "React, Node.js, Stripe",
-        "link": "https://github.com/yourusername/ecommerce"
+        "link": [
+          "https://demoproject1.com/",
+          "https://github.com/yourusername/ecommerce"
+        ]
       },
       {
         "id": "2",
@@ -44,15 +61,21 @@
         "description": "Апликација за управљање задацима и тимовима.",
         "details": "Развијена коришћењем Next.js и MongoDB. Укључује ажурирања у реалном времену и функције за сарадњу тима.",
         "technologies": "Next.js, MongoDB, WebSocket",
-        "link": "https://github.com/yourusername/taskmanager"
+        "link": [
+          "https://demoproject2.com/",
+          "https://github.com/yourusername/taskmanager"
+        ]
       },
       {
         "id": "3",
         "title": "Лични веб-сајт",
         "description": "Лични сајт-резиме са подршком за више језика.",
-        "details": "Креиран са React, Tailwind CSS и Node.js. Подржава генерисање PDF-а и слање е-поште.",
+        "details": "Креиран са React, Tailwind CSS и Node.js. Подржава генерисање PDF-а.",
         "technologies": "React, Tailwind CSS, Node.js",
-        "link": "https://github.com/yourusername/portfolio"
+        "link": [
+          "https://demoproject3.com/",
+          "https://github.com/yourusername/portfolio"
+        ]
       }
     ],
     "viewDetails": "Погледај детаље",
@@ -61,5 +84,8 @@
   "social": {
     "title": "Повежите се са мном"
   },
-  "downloadPDF": "Преузми ПДФ"
+  "pdfDownload": {
+    "withImages": "Преузми CV",
+    "withoutImages": "Преузми CV без слика"
+  }
 }

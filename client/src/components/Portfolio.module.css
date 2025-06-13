@@ -57,6 +57,28 @@
   text-align: center;
 }
 
+.link {
+  display: inline-flex; /* Используем inline-flex для компактности */
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  padding: 0.4rem 0.8rem; /* Уменьшенные отступы */
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 0.85rem; /* Меньший шрифт */
+  max-width: 100%; /* Ограничиваем ширину */
+  white-space: nowrap; /* Предотвращаем перенос текста */
+  overflow: hidden; /* Скрываем переполнение */
+  text-overflow: ellipsis; /* Добавляем многоточие для длинных ссылок */
+  transition: background 0.2s, transform 0.2s;
+}
+
+
+.link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
 .content {
   padding: 1rem;
 }

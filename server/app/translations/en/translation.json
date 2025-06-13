@@ -4,16 +4,22 @@
     "title": "My Resume",
     "languageSelector": "Select Language"
   },
-  "highlights": {
-    "title": "Highlights",
+  "about": {
+    "title": "About Me",
     "items": [
-      "Won first place in a programming competition in 2023.",
-      "Implemented a project management system, boosting efficiency by 30%.",
-      "Certified React and Node.js specialist."
+      {
+        "fullName": "John Smith",
+        "profession": "Frontend Developer",
+        "description": "Experienced frontend developer with over 3 years in building responsive web applications, passionate about modern technologies and efficient solutions."
+      }
     ]
   },
+  "skills": {
+    "title": "Skills",
+    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  },
   "experience": {
-    "title": "Experience",
+    "title": "Work Experience",
     "items": [
       {
         "company": "Tech Corp",
@@ -23,12 +29,20 @@
       }
     ]
   },
-  "skills": {
-    "title": "Skills",
-    "items": ["React", "Node.js", "Tailwind CSS", "JavaScript", "MongoDB"]
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "institution": "State University",
+        "specialty": "Information Systems",
+        "degree": "Bachelor",
+        "period": "2017 - 2021"
+      }
+    ]
   },
   "portfolio": {
     "title": "Portfolio",
+    "technologies": "Technologies Used",
     "projects": [
       {
         "id": "1",
@@ -36,7 +50,10 @@
         "description": "A full-stack online store with payment integration.",
         "details": "Built with React, Node.js, and Stripe. Features user authentication, product filtering, and a responsive design.",
         "technologies": "React, Node.js, Stripe",
-        "link": "https://github.com/yourusername/ecommerce"
+        "link": [
+          "https://demoproject1.com/",
+          "https://github.com/yourusername/ecommerce"
+        ]
       },
       {
         "id": "2",
@@ -44,15 +61,21 @@
         "description": "A productivity app for managing tasks and teams.",
         "details": "Developed using Next.js and MongoDB. Includes real-time updates and team collaboration features.",
         "technologies": "Next.js, MongoDB, WebSocket",
-        "link": "https://github.com/yourusername/taskmanager"
+        "link": [
+          "https://demoproject2.com/",
+          "https://github.com/yourusername/taskmanager"
+        ]
       },
       {
         "id": "3",
         "title": "Portfolio Website",
         "description": "A personal resume website with multi-language support.",
-        "details": "Created with React, Tailwind CSS, and Node.js. Supports PDF generation and email functionality.",
+        "details": "Created with React, Tailwind CSS, and Node.js. Supports PDF generation.",
         "technologies": "React, Tailwind CSS, Node.js",
-        "link": "https://github.com/yourusername/portfolio"
+        "link": [
+          "https://demoproject3.com/",
+          "https://github.com/yourusername/portfolio"
+        ]
       }
     ],
     "viewDetails": "View Details",
@@ -61,5 +84,8 @@
   "social": {
     "title": "Connect with Me"
   },
-  "downloadPDF": "Download PDF"
+  "pdfDownload": {
+    "withImages": "Download CV",
+    "withoutImages": "Download CV without Images"
+  }
 }

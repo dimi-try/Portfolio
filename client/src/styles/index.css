@@ -60,6 +60,14 @@ button:hover {
     background: none;
   }
   .no-print {
-    display: none;
+    display: none !important;
   }
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* Скрываем print-only элементы на экране */
+.print-only {
+  display: none;
 }

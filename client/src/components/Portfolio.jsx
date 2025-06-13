@@ -79,7 +79,20 @@ const Portfolio = () => {
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.description}>{project.description}</p>
                 <p className={styles.technologies}>{project.technologies}</p>
-                <button className={styles.button}>
+                <div className={`${styles.links} print-only`}>
+                  {project.link.map((url, index) => (
+                    <a
+                      key={index}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.link}
+                    >
+                      {url}
+                    </a>
+                  ))}
+                </div>
+                <button className={`${styles.button} no-print`}>
                   {t('portfolio.viewDetails')}
                 </button>
               </div>
