@@ -84,5 +84,8 @@
   "social": {
     "title": "Зв’язатися зі мною"
   },
-  "downloadPDF": "Завантажити CV"
+  "pdfDownload": {
+    "withImages": "Завантажити CV",
+    "withoutImages": "Завантажити CV без картинок"
+  }
 }

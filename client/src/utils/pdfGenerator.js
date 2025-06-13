@@ -1,7 +1,7 @@
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-export const generatePDF = async () => {
+export const generatePDF = async ({ includeImages = true } = {}) => {
   const element = document.getElementById('resume-content');
 
   if (!element) {
@@ -44,7 +44,7 @@ export const generatePDF = async () => {
       object-fit: contain !important;
       max-width: 100% !important;
       height: auto !important;
-      display: block;
+      display: ${includeImages ? 'block' : 'none'} !important;
       margin: 0 auto;
     }
     .no-print {
@@ -82,9 +82,6 @@ export const generatePDF = async () => {
     el.style.display = display;
   });
 
-  // Создаем PDF
-  const imgData = canvas.toDataURL("image/png");
-
   const pdf = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
@@ -118,8 +115,9 @@ export const generatePDF = async () => {
   pdf.setFillColor(backgroundColor);
   pdf.rect(0, 0, pageWidth, pageHeight, 'F');
 
-  // Добавляем изображение
-  pdf.addImage(imgData, 'PNG', x, y, pdfImgWidth, pdfImgHeight);
+  // Добавляем изображение с сжатием (JPEG, quality 0.7)
+  const imgData = canvas.toDataURL('image/jpeg', 0.7);
+  pdf.addImage(imgData, 'JPEG', x, y, pdfImgWidth, pdfImgHeight);
 
   // Извлекаем английское имя из localStorage
   let fullName = '';
@@ -138,7 +136,7 @@ export const generatePDF = async () => {
   }
 
   // Сохраняем PDF
-  const fileName = `${fullName}.pdf`;
+  const fileName = `${fullName}${includeImages ? '' : '_NoImages'}.pdf`;
   console.log('Сохраняем PDF как:', fileName);
   pdf.save(fileName);
 };

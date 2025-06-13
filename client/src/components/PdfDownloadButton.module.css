@@ -1,3 +1,12 @@
+.buttonContainer {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center; /* Центрируем кнопки горизонтально */
+  align-items: center; /* Выравниваем по вертикали */
+  width: 100%; /* Убедимся, что контейнер занимает всю ширину родителя */
+  margin: 0 auto; /* Дополнительное центрирование для блочных элементов */
+}
+
 .button {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   color: #ffffff;

@@ -84,5 +84,8 @@
   "social": {
     "title": "Connect with Me"
   },
-  "downloadPDF": "Download CV"
+  "pdfDownload": {
+    "withImages": "Download CV",
+    "withoutImages": "Download CV without Images"
+  }
 }

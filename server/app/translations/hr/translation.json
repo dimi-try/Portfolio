@@ -84,5 +84,8 @@
   "social": {
     "title": "Povežite se sa mnom"
   },
-  "downloadPDF": "Preuzmi CV"
+  "pdfDownload": {
+    "withImages": "Preuzmi CV",
+    "withoutImages": "Preuzmi CV bez slika"
+  }
 }

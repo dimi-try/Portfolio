@@ -84,5 +84,8 @@
   "social": {
     "title": "Связаться со мной"
   },
-  "downloadPDF": "Скачать CV"
+  "pdfDownload": {
+    "withImages": "Скачать CV",
+    "withoutImages": "Скачать CV без картинок"
+  }
 }
