@@ -82,10 +82,8 @@ Portfolio/
 
 ### 1️⃣ Подготовка окружения
 
-#### 📌 Backend Установка зависимостей
-```bash
-pip install -r requirements.txt
-```
+#### 📋 Настройка .env
+Скопируйте `.env.sample`, переименуйте в `.env` и добавьте свои данные.
 
 #### 🔧 Backend Создание и активация виртуального окружения
 
@@ -101,12 +99,15 @@ venv\Scripts\activate  # Windows
 source venv/bin/activate  # Linux/macOS
 ```
 
+#### 📌 Backend Установка зависимостей
+```bash
+pip install -r requirements.txt
+```
+
 #### 📥 Frontend Установка зависимостей  
 ```sh
 npm install
 ```
-#### 📋 Настройка .env
-Скопируйте `.env.sample`, переименуйте в `.env` и добавьте свои данные.
 
 ### 2️⃣ Запуск
 
