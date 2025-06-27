@@ -8,4 +8,4 @@ services:
         - VITE_EMAIL_ADDRESS=${VITE_EMAIL_ADDRESS}
         - VITE_TELEGRAM_URL=${VITE_TELEGRAM_URL}
         - VITE_API_URL=${VITE_API_URL}
-    image: ${DOCKER_USERNAME}/portfolio-frontend:latest
+    image: ${DOCKER_HUB_USER}/portfolio-frontend:latest

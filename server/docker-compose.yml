@@ -3,4 +3,4 @@ services:
   backend:
     build:
       context: .
-    image: ${DOCKER_USERNAME}/portfolio-backend:latest
+    image: ${DOCKER_HUB_USER}/portfolio-backend:latest

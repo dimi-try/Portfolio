@@ -161,7 +161,7 @@ docker push <your-dockerhub>
 4.  При пуше в `main` ветку произойдёт автоматическая сборка и публикация образа в DockerHub
     
 
-На прод-сервере можете использовать `docker-compose-server.yml`. Не забудьте создать свой `.env` для этого файла.
+На прод-сервере можете использовать `docker-compose-server.yml`. Скопируйте `.env.example`, переименуйте в `.env` и добавьте свои данные.
 
 ---
 ## ⚠️ Важные примечания по использованию проекта
@@ -214,6 +214,17 @@ pip freeze > requirements.txt
 pip uninstall -y -r requirements.txt
 ```
 
+🧹 **Удаление виртуального окружения venv**
+```powershell
+Get-ChildItem -Path . -Recurse -Directory -Filter "venv" | Remove-Item -Recurse -Force #windows
+```
+
+🧹 **Удаление кеша pycache**
+```powershell
+Get-ChildItem -Recurse -Directory -Include "__pycache__", ".mypy_cache", ".pytest_cache" | Remove-Item -Recurse -Force #windows
+Get-ChildItem -Recurse -Include *.pyc | Remove-Item -Force #windows
+```
+
 
 ### Frontend
 ##### 📌 Установка зависимостей  
@@ -231,6 +242,10 @@ npm run lint
 ##### 🧹 Очистка кэша  
 ```sh
 npm cache clean --force
+```
+##### 🗑 Очистка node_modules  
+```sh
+Get-ChildItem -Path . -Recurse -Directory -Filter "node_modules" | Remove-Item -Recurse -Force #windows
 ```
 ---
 
