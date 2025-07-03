@@ -1,7 +1,7 @@
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-export const generatePDF = async ({ includeImages = true } = {}) => {
+export const generatePDF = async ({ includeImages = true, excludeProjects = false } = {}) => {
   const element = document.getElementById('resume-content');
 
   if (!element) {
@@ -14,8 +14,8 @@ export const generatePDF = async ({ includeImages = true } = {}) => {
   const originalClass = element.getAttribute("class") || "";
   const originalDisplayStyles = new Map(); // Для сохранения display стилей элементов
 
-  // Сохраняем исходные display стили для элементов с классами no-print и print-only
-  document.querySelectorAll('.no-print, .print-only').forEach((el) => {
+  // Сохраняем исходные display стили для элементов с классами no-print, print-only и portfolio-section
+  document.querySelectorAll('.no-print, .print-only, #portfolio-section').forEach((el) => {
     originalDisplayStyles.set(el, el.style.display || '');
   });
 
@@ -53,16 +53,25 @@ export const generatePDF = async ({ includeImages = true } = {}) => {
     .print-only {
       display: block !important;
     }
+    #portfolio-section {
+      display: ${excludeProjects ? 'none' : 'block'} !important;
+    }
   `;
   document.head.appendChild(style);
 
-  // Скрываем no-print элементы и показываем print-only
+  // Скрываем no-print элементы, показываем print-only и управляем видимостью portfolio-section
   document.querySelectorAll('.no-print').forEach((el) => {
     el.style.display = 'none';
   });
   document.querySelectorAll('.print-only').forEach((el) => {
     el.style.display = 'block';
   });
+  if (excludeProjects) {
+    const portfolioSection = document.getElementById('portfolio-section');
+    if (portfolioSection) {
+      portfolioSection.style.display = 'none';
+    }
+  }
 
   // Захват DOM в canvas
   const canvas = await html2canvas(element, {
@@ -135,8 +144,8 @@ export const generatePDF = async ({ includeImages = true } = {}) => {
     console.error('Ошибка при извлечении englishFullName:', error);
   }
 
-  // Сохраняем PDF
-  const fileName = `${fullName}${includeImages ? '' : '_NoImages'}.pdf`;
+  // Формируем имя файла
+  const fileName = `${fullName}${includeImages ? '' : '_NoImages'}${excludeProjects ? '_CV' : ''}.pdf`;
   console.log('Сохраняем PDF как:', fileName);
   pdf.save(fileName);
 };

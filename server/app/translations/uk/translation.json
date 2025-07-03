@@ -85,7 +85,8 @@
     "title": "Зв’язатися зі мною"
   },
   "pdfDownload": {
-    "withImages": "Завантажити CV",
-    "withoutImages": "Завантажити CV без картинок"
+    "withoutProjects": "Завантажити резюме",
+    "withImages": "Завантажити резюме з проєктами",
+    "withoutImages": "Завантажити резюме без зображень"
   }
 }

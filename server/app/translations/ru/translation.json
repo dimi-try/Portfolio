@@ -85,7 +85,8 @@
     "title": "Связаться со мной"
   },
   "pdfDownload": {
-    "withImages": "Скачать CV",
-    "withoutImages": "Скачать CV без картинок"
+    "withoutProjects": "Скачать резюме",
+    "withImages": "Скачать резюме с проектами",
+    "withoutImages": "Скачать резюме без изображений"
   }
 }
