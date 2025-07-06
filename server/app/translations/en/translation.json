@@ -85,7 +85,8 @@
     "title": "Connect with Me"
   },
   "pdfDownload": {
-    "withImages": "Download CV",
+    "withoutProjects": "Download CV",
+    "withImages": "Download CV with Projects",
     "withoutImages": "Download CV without Images"
   }
 }

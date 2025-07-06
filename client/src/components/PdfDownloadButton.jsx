@@ -6,16 +6,30 @@ import styles from './PdfDownloadButton.module.css';
 const PdfDownloadButton = () => {
   const { t } = useTranslation();
 
+  const handleDownloadWithoutProjects = () => {
+    generatePDF({ includeImages: true, excludeProjects: true });
+  };
+
   const handleDownloadWithImages = () => {
-    generatePDF({ includeImages: true });
+    generatePDF({ includeImages: true, excludeProjects: false });
   };
 
   const handleDownloadWithoutImages = () => {
-    generatePDF({ includeImages: false });
+    generatePDF({ includeImages: false, excludeProjects: false });
   };
 
   return (
     <div className={styles.buttonContainer}>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={handleDownloadWithoutProjects}
+        className={styles.button}
+        title={t('pdfDownload.withoutProjects')}
+      >
+        {t('pdfDownload.withoutProjects')}
+      </motion.button>
+
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -25,6 +39,7 @@ const PdfDownloadButton = () => {
       >
         {t('pdfDownload.withImages')}
       </motion.button>
+
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

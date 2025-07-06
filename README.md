@@ -85,18 +85,16 @@ Portfolio/
 #### 📋 Настройка .env
 Скопируйте `.env.sample`, переименуйте в `.env` и добавьте свои данные.
 
-#### 🔧 Backend Создание и активация виртуального окружения
+#### 🔧 Backend Создание виртуального окружения
+
+Заходим в папку server
+```bash
+cd server
+```
 
 Создание 
 ```bash
 python -m venv venv
-```
-Активация
-```bash
-venv\Scripts\activate  # Windows
-```
-```bash
-source venv/bin/activate  # Linux/macOS
 ```
 
 #### 📌 Backend Установка зависимостей
@@ -105,6 +103,16 @@ pip install -r requirements.txt
 ```
 
 #### 📥 Frontend Установка зависимостей  
+
+Заходим в папку client, если вы в Portfolio
+```bash
+cd client
+```
+или если вы в папке server, то
+```bash
+cd ../client
+```
+
 ```sh
 npm install
 ```
@@ -112,6 +120,23 @@ npm install
 ### 2️⃣ Запуск
 
 #### 🚀 Backend Запуск 
+Заходим в папку server, если вы в Portfolio
+```bash
+cd server
+```
+или если вы в папке client, то
+```bash
+cd ../server
+```
+
+Активация виртуального окружения
+```bash
+venv\Scripts\activate  # Windows
+```
+```bash
+source venv/bin/activate  # Linux/macOS
+```
+
 ```bash
 uvicorn app.main:app --reload
 ```

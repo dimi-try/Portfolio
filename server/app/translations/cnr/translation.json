@@ -85,7 +85,8 @@
     "title": "Povežite se sa mnom"
   },
   "pdfDownload": {
-    "withImages": "Preuzmi CV",
+    "withoutProjects": "Preuzmi CV",
+    "withImages": "Preuzmi CV sa projektima",
     "withoutImages": "Preuzmi CV bez slika"
   }
 }
